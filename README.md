@@ -1,7 +1,6 @@
 # DLHD
 
-### Installation
-#### Run application locally 
+### Installation Guide
 
 - Clone the project 
 - Move to the folder where you cloned the project 
