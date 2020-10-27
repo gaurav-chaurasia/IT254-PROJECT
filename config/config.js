@@ -1,5 +1,7 @@
 module.exports = {
-    "development": {},
+    "development": {
+        'DATABASE_URI': process.env.DATABASE_URI
+    },
     "test": {},
     "production": {}
 }
