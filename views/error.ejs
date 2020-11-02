@@ -1,2 +1,10 @@
-<h1> error_message: <%= err.message%> </h1>
-<h1> error_status: <%= err.status%> </h1>
+<%- include('./partials/header') %>
+<div class="container my-3 mx-auto">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error</h4>
+        <p><%= err.message%></p>
+        <hr>
+        <p class="mb-0">status code: <%= err.status%></p>
+    </div>
+</div>
+<%- include('./partials/footer') %>

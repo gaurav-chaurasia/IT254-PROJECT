@@ -7,13 +7,17 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const passport = require('passport');
 require('dotenv').config();
 
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
 const config = require('./config/config')[process.env.NODE_ENV || 'development'];
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/users');
+const testRouter = require('./routes/tests');
 
 
 // ----------------------------------------
@@ -47,9 +51,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // ----------------------------------------
+// passport configuration
+// ----------------------------------------
+app.use(session({
+	name: config.session,
+	secret: config.secret,
+	saveUninitialized: false,
+	resave: false,
+	store: new FileStore()
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// ----------------------------------------
 // routing
 // ----------------------------------------
-app.use('/users', usersRouter);
+app.use('/', testRouter);
+app.use('/users', userRouter);
 
 
 // ----------------------------------------

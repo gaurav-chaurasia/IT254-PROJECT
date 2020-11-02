@@ -11,9 +11,12 @@
 ```
 
 - Now run the server by running following command
+  - devStart runs the sever with nodemon which automatically restart server everytime we make any changes  
 
 ```js
     $ npm run devStart
+        or 
+    $ npm start
 ```
 
 - The above steps starts the development server on localhost:3000 
