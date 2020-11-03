@@ -7,15 +7,20 @@ const passport = require('passport');
 // import local node modules
 // ----------------------------------------
 const config = require('../config/config')[process.env.NODE_ENV || 'development'];
+const { ROUTES } = require('../config/ROUTES');
 const User = require('../models/user');
 
 
 const getRegistrationPage = (req, res, next) => {
-    res.render("auth/register");
+    res.render("auth/register", {
+		ROUTES: ROUTES
+	});
 }
 
 const getLoginPage = (req, res, next) => {
-    res.render("auth/login");
+    res.render("auth/login", {
+		ROUTES: ROUTES
+	});
 }
 
 const registerUser = (req, res) => {
@@ -35,7 +40,7 @@ const registerUser = (req, res) => {
 			passport.authenticate('local')(req, res, () => {
 				res.status(200);
 				res.setHeader('Content-Type', 'application/json');
-				res.json({success: true, status: 'Registration Successful!'});
+				res.json({success: true, message: 'Registration Successful!'});
 			});
 		}
 	});
@@ -51,7 +56,7 @@ const loginUser = (req, res, next) => {
 			res.setHeader('Content-Type', 'application/json');
 			res.json({
                 success: false, 
-                status: 'Login Unsuccessful!', 
+                message: 'Login Unsuccessful!', 
                 err: info
             });
 		}
@@ -61,13 +66,13 @@ const loginUser = (req, res, next) => {
                 res.setHeader('Content-Type', 'application/json');
 				res.json({
                     success: false, 
-                    status: 'Login Unsuccessful!', 
+                    message: 'Login Unsuccessful!', 
                     err: 'Could not login user'
                 });
             }
             
 			res.status(200);
-			res.json({success: true, status: 'You are Successfully logged in!'});
+			res.json({success: true, message: 'You are Successfully logged in!'});
 		});
 	}) (req, res, next);
 }
@@ -76,7 +81,7 @@ const logoutUser = (req, res, next) => {
     if (req.session) {
 		req.session.destroy();
 		res.clearCookie(config.session);
-		res.redirect('/');
+		res.redirect(ROUTES.ROOT_PATH);
 	}
 	else {
 		var err = new Error('You are not logged in!');

@@ -1,10 +1,14 @@
 <%- include('./partials/header') %>
-<div class="container my-3 mx-auto">
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Error</h4>
-        <p><%= err.message%></p>
-        <hr>
-        <p class="mb-0">status code: <%= err.status%></p>
+<div class="container">
+    <div class="error-handler">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">
+                <i class="fas fa-exclamation-circle"></i> Opps! an error occured
+            </h4>
+            <p><%= err.message%></p>
+            <hr>
+            <p class="mb-0">status code: <%= err.status%></p>
+        </div>
     </div>
 </div>
 <%- include('./partials/footer') %>

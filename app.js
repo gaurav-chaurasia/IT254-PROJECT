@@ -16,6 +16,7 @@ require('dotenv').config();
 // import local node modules
 // ----------------------------------------
 const config = require('./config/config')[process.env.NODE_ENV || 'development'];
+const { ROUTES } = require('./config/ROUTES');
 const userRouter = require('./routes/users');
 const testRouter = require('./routes/tests');
 
@@ -68,8 +69,8 @@ app.use(passport.session());
 // ----------------------------------------
 // routing
 // ----------------------------------------
-app.use('/', testRouter);
-app.use('/users', userRouter);
+app.use(testRouter);
+app.use(userRouter);
 
 
 // ----------------------------------------
@@ -90,7 +91,10 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {err: err});
+  res.render('error', {
+    err: err, 
+    ROUTES: ROUTES,
+  });
 });
 
 module.exports = app;
