@@ -7,15 +7,20 @@ const passport = require('passport');
 // import local node modules
 // ----------------------------------------
 const config = require('../config/config')[process.env.NODE_ENV || 'development'];
+const { ROUTES } = require('../config/ROUTES');
 const User = require('../models/user');
 
 
 const getRegistrationPage = (req, res, next) => {
-    res.render("auth/register");
+    res.render("auth/register", {
+		ROUTES: ROUTES
+	});
 }
 
 const getLoginPage = (req, res, next) => {
-    res.render("auth/login");
+    res.render("auth/login", {
+		ROUTES: ROUTES
+	});
 }
 
 const registerUser = (req, res) => {

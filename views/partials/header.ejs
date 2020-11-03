@@ -11,7 +11,7 @@
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <div class="container">
     <ul class=navbar-nav>
-      <a class="navbar-brand" href="#"><i class="far fa-heart"></i> DLHD</a>
+      <a class="navbar-brand" href="#">DLHD</a>
     </ul>
     <!-- Links -->
     <ul class="navbar-nav">
@@ -34,16 +34,16 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <button class="dropdown-item" type="button">
-          <a class="nav-link" href="/tests">tests</a>
+          <a class="nav-link" href="<%= ROUTES.TESTS_PATH %>">tests</a>
         </button>
         <button class="dropdown-item" type="button">
-          <a class="nav-link" href="/users/register">Register</a>
+          <a class="nav-link" href="<%= ROUTES.REGISTRATION_PATH%>">Register</a>
         </button>
         <button class="dropdown-item" type="button">
-          <a class="nav-link" href="/users/login">Login</a>
+          <a class="nav-link" href="<%= ROUTES.LOGIN_PATH %>">Login</a>
         </button>
         <button class="dropdown-item" type="button">
-          <a class="nav-link" href="/users/logout">Logout</a>
+          <a class="nav-link" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
         </button>
       </div>
     </div>

@@ -7,37 +7,43 @@ const router = express.Router();
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
+const auth = require('../auth/authenticate');
+const { ROUTES } = require('../config/ROUTES');
 const userController = require('../controllers/users');
 
 
 /* GET users listing. */
-router.get('/', (req, res, next) => {
+router.get(
+	ROUTES.USERS_PATH, 
+	auth.authenticateUser,
+	auth.authorizeAdmin,
+	(req, res, next) => {
 	res.send('respond with a resource');
 });
 
 router.get(
-	'/register', 
+	ROUTES.REGISTRATION_PATH, 
 	userController.getRegistrationPage
 );
 
 router.get(
-	'/login', 
+	ROUTES.LOGIN_PATH, 
 	userController.getLoginPage
 );
 
 router.get(
-	'/logout', 
+	ROUTES.LOGOUT_PATH, 
 	userController.logoutUser
 );
 
 
 router.post(
-	'/register', 
+	ROUTES.REGISTRATION_PATH, 
 	userController.registerUser
 );
 
 router.post(
-	'/login', 
+	ROUTES.LOGIN_PATH, 
 	userController.loginUser
 );
 
