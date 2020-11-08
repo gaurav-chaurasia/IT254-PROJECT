@@ -12,6 +12,9 @@
   <div class="container">
     <ul class=navbar-nav>
       <a class="navbar-brand" href="#">DLHD</a>
+      <li class="nav-item">
+        <a class="nav-link mx-3" href="<%= ROUTES.TESTS_PATH %>">tests</a>
+      </li>
     </ul>
     <!-- Links -->
     <ul class="navbar-nav">
@@ -24,25 +27,18 @@
       <li class="nav-item">
         <a class="nav-link mx-3" href="/">Medicine</a>
       </li>
+      <% if (currentUser) { %>
+        <li class="nav-item">
+          <a class="nav-link mx-3" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
+        </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link mx-3" href="<%= ROUTES.LOGIN_PATH %>">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3" href="<%= ROUTES.REGISTRATION_PATH%>">Register</a>
+        </li>
+      <% } %>
     </ul>
-    <div class="dropdown">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dashboad
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">
-          <a class="nav-link" href="<%= ROUTES.TESTS_PATH %>">tests</a>
-        </button>
-        <button class="dropdown-item" type="button">
-          <a class="nav-link" href="<%= ROUTES.REGISTRATION_PATH%>">Register</a>
-        </button>
-        <button class="dropdown-item" type="button">
-          <a class="nav-link" href="<%= ROUTES.LOGIN_PATH %>">Login</a>
-        </button>
-        <button class="dropdown-item" type="button">
-          <a class="nav-link" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
-        </button>
-      </div>
-    </div>
   </div>
 </nav>

@@ -10,9 +10,7 @@ const { ROUTES } = require("../config/ROUTES");
 
 
 const test = (req, res, next) => {
-    res.render("test", {
-        ROUTES: ROUTES
-    });
+    res.render("test");
 }
 
 module.exports = {

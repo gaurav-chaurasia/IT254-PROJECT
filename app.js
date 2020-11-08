@@ -65,6 +65,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// ----------------------------------------
+// set local variables 
+// ----------------------------------------
+app.use((req, res, next) => {
+  res.locals.ROUTES = ROUTES;
+  res.locals.currentUser = req.user;
+  next();
+});
+
 
 // ----------------------------------------
 // routing
@@ -91,10 +100,7 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {
-    err: err, 
-    ROUTES: ROUTES,
-  });
+  res.render('error');
 });
 
 module.exports = app;

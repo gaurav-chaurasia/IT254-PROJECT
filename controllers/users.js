@@ -12,15 +12,11 @@ const User = require('../models/user');
 
 
 const getRegistrationPage = (req, res, next) => {
-    res.render("auth/register", {
-		ROUTES: ROUTES
-	});
+    res.render("auth/register");
 }
 
 const getLoginPage = (req, res, next) => {
-    res.render("auth/login", {
-		ROUTES: ROUTES
-	});
+    res.render("auth/login");
 }
 
 const registerUser = (req, res) => {
