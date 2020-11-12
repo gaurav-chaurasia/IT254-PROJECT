@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>DLHD</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/5506f7f00f.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-<body>
+  <head>
+    <title>DLHD</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5506f7f00f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+      <div class="container">
+        <ul class="navbar-nav">
+          <a class="navbar-brand" href="#">DLHD</a>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="<%= ROUTES.TESTS_PATH %>">tests</a>
+          </li>
+        </ul>
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="/">Diet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="/">Medicine</a>
+          </li>
+          <% if (currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="<%= ROUTES.LOGIN_PATH %>">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="<%= ROUTES.REGISTRATION_PATH%>"
+              >Register</a
+            >
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+    <%- include('./message') %>
 
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-  <div class="container">
-    <ul class=navbar-nav>
-      <a class="navbar-brand" href="#">DLHD</a>
-      <li class="nav-item">
-        <a class="nav-link mx-3" href="<%= ROUTES.TESTS_PATH %>">tests</a>
-      </li>
-    </ul>
-    <!-- Links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link mx-3" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link mx-3" href="/">Diet</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link mx-3" href="/">Medicine</a>
-      </li>
-      <% if (currentUser) { %>
-        <li class="nav-item">
-          <a class="nav-link mx-3" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
-        </li>
-      <% } else { %>
-        <li class="nav-item">
-          <a class="nav-link mx-3" href="<%= ROUTES.LOGIN_PATH %>">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-3" href="<%= ROUTES.REGISTRATION_PATH%>">Register</a>
-        </li>
-      <% } %>
-    </ul>
-  </div>
-</nav>

@@ -21,3 +21,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.close {
+  position: relative !important;
+  padding: 0 !important;
+}
+.alert {
+  border-radius: 0 !important;
+}

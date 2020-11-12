@@ -10,6 +10,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const passport = require('passport');
+const flash = require('connect-flash');
 require('dotenv').config();
 
 // ----------------------------------------
@@ -64,6 +65,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // ----------------------------------------
 // set local variables 
@@ -71,6 +73,11 @@ app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.ROUTES = ROUTES;
   res.locals.currentUser = req.user;
+  res.locals.info = req.flash('info');
+  res.locals.danger = req.flash('danger');
+  res.locals.success = req.flash('success');
+  res.locals.warning = req.flash('warning');
+  // console.log(info);
   next();
 });
 

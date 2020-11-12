@@ -28,15 +28,18 @@ const registerUser = (req, res) => {
         dob: req.body.dob,
     }), req.body.password, (err, user) => {
 		if(err) {
-			res.status(500);
-			res.setHeader('Content-Type', 'application/json');
-			res.json({err: err});
+			// res.status(500);
+			// res.json({err: err});
+			req.flash('success', err);
+			res.redirect(ROUTES.LOGIN_PATH);
+			
 		}
 		else {
 			passport.authenticate('local')(req, res, () => {
-				res.status(200);
-				res.setHeader('Content-Type', 'application/json');
-				res.json({success: true, message: 'Registration Successful!'});
+				// res.status(200);
+				// res.json({success: true, message: 'Registration Successful!'});
+				req.flash('success', 'Registration Successful!');
+				res.redirect(ROUTES.LOGIN_PATH);
 			});
 		}
 	});
@@ -48,27 +51,23 @@ const loginUser = (req, res, next) => {
 			return next(err);
 
 		if (!user) {
-			res.status(401);
-			res.setHeader('Content-Type', 'application/json');
-			res.json({
-                success: false, 
-                message: 'Login Unsuccessful!', 
-                err: info
-            });
+			// res.status(401);
+			// res.json({
+            //     success: false, 
+            //     message: 'Login Unsuccessful!', 
+            //     err: info
+			// });
+			req.flash('info', info);
+			res.redirect(ROUTES.LOGIN_PATH);
 		}
 		req.logIn(user, (err) => {
 			if(err) {
-				res.status(401);
-                res.setHeader('Content-Type', 'application/json');
-				res.json({
-                    success: false, 
-                    message: 'Login Unsuccessful!', 
-                    err: 'Could not login user'
-                });
-            }
-            
-			res.status(200);
-			res.json({success: true, message: 'You are Successfully logged in!'});
+				req.flash('danger', 'Login Unsuccessful!');
+				res.redirect(ROUTES.LOGIN_PATH);
+			}
+			
+			req.flash('success', 'You are Successfully logged in!');
+			res.redirect(ROUTES.ROOT_PATH);
 		});
 	}) (req, res, next);
 }

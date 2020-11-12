@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 // import local node modules
 // ----------------------------------------
 const User = require('../models/user');
+const { ROUTES } = require('../config/ROUTES');
 
 
 /**
@@ -31,9 +32,8 @@ const authenticateUser = (req, res, next) => {
 
 const authorizeDoctor = (req, res, next) => {
     if (req.user.role !== 'DOCTOR') {
-        var err = new Error('Access denied! you do not have permission for this operation.');
-		err.status = 401;
-		return next(err);
+        req.flash('warning', 'Access denied! you do not have permission for this operation.');
+        res.redirect(ROUTES.ROOT_PATH);
     }
     else {
         next();
@@ -42,9 +42,8 @@ const authorizeDoctor = (req, res, next) => {
 
 const authorizeAdmin = (req, res, next) => {
     if (req.user.role !== 'ADMIN') {
-        var err = new Error('Access denied! you do not have permission for this operation.');
-		err.status = 401;
-		return next(err);
+        req.flash('warning', 'Access denied! you do not have permission for this operation.');
+        res.redirect(ROUTES.ROOT_PATH);
     }
     else {
         next();

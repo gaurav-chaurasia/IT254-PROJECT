@@ -1,14 +1,14 @@
 <%- include('./partials/header') %>
 <div class="container">
-    <div class="error-handler">
-        <div class="alert alert-danger" role="alert">
-            <h4 class="alert-heading">
-                <i class="fas fa-exclamation-circle"></i> Opps! an error occured
-            </h4>
-            <p><%= message %></p>
-            <hr>
-            <p class="mb-0">status code: <%= error.status %></p>
-        </div>
+  <div class="error-handler">
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">
+        <i class="fas fa-exclamation-circle"></i> Opps! an error occured
+      </h4>
+      <p><%= message %></p>
+      <hr />
+      <p class="mb-0">status code: <%= error.status %></p>
     </div>
+  </div>
 </div>
 <%- include('./partials/footer') %>
