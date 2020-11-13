@@ -12,7 +12,6 @@ const GENDERS = [
     'MALE',
     'FEMALE',
     'TRANS',
-    'AGENDER',
     'OTHER'
 ];
 
@@ -59,6 +58,10 @@ const UserSchema = new Schema({
     },
     dob: {
         type: Date
+    },
+    gender: {
+        type: String,
+        enum: GENDERS,
     }
 }, {
     timestamps: true

@@ -25,7 +25,8 @@ const registerUser = (req, res) => {
         email: req.body.email,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        dob: req.body.dob,
+		dob: req.body.dob,
+		gender: req.body.gender,
     }), req.body.password, (err, user) => {
 		if(err) {
 			// res.status(500);
