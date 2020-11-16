@@ -29,3 +29,27 @@
 .alert {
   border-radius: 0 !important;
 }
+
+.nav {
+    background-color: #252b3b;
+    text-align: center;
+    color: #414c69;
+}
+
+.logo {
+    padding: 4px 0px !important;
+    border-radius: 30px;
+    color: #929292;
+    text-shadow: none;
+}
+.logo:hover {
+    transition: 0.1s;
+    color: #d8d8d8;
+    text-shadow: none;
+}
+
+.navi {
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+}
