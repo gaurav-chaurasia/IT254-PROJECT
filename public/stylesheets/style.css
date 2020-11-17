@@ -31,25 +31,98 @@
 }
 
 .nav {
-    background-color: #252b3b;
-    text-align: center;
-    color: #414c69;
+  background-color: #252b3b;
+  text-align: center;
+  color: #414c69;
 }
 
 .logo {
-    padding: 4px 0px !important;
-    border-radius: 30px;
-    color: #929292;
-    text-shadow: none;
+  padding: 1px 0px !important;
+  border-radius: 30px;
+  color: #929292;
+  text-shadow: none;
 }
 .logo:hover {
-    transition: 0.1s;
-    color: #d8d8d8;
-    text-shadow: none;
+  transition: 0.1s;
+  color: #d8d8d8;
+  text-shadow: none;
 }
 
 .navi {
-    position: sticky;
-    top: 0px;
-    z-index: 999;
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+}
+.remove_field {
+  position: relative;
+  color: tomato;
+}
+.remove_field:hover {
+  color: rgb(173, 50, 28);
+}
+svg {
+  height: 2rem;
+  width: 2rem;
+  fill: #383838;
+  opacity: 1;
+}
+svg:hover {
+  fill: #55acee;
+}
+button {
+  color: #555;
+  background: none;
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 300;
+}
+.seperator {
+  height: 40px;
+  margin: 0;
+}
+
+.form-group {
+    position: relative;
+}
+
+.add_genral_symptoms_button, 
+.add_score_symptoms_button, 
+.add_causes_button {
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+.add_genral_symptoms_button svg, 
+.add_score_symptoms_button svg, 
+.add_causes_button svg {
+  fill: #5cb85c;
+}
+
+.causes {
+  position: absolute;
+  top: -51px;
+  left: 650px;
+  fill: thistle;
+}
+.genral_symptoms {
+  position: absolute;
+  top: -50px;
+  left: 650px;
+  fill: thistle;
+}
+.score_symptoms {
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  fill: thistle;
+}
+
+.score_symptoms:hover, 
+.genral_symptoms:hover, 
+.causes:hover {
+    fill: rgb(194, 61, 37);
+    transition: 0.2s ease-out;
 }

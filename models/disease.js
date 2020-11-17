@@ -10,14 +10,14 @@ const DiseaseSchema = new Schema({
         trim: true,
         index: true,
     },
-    symptoms: [ 
+    genral_symptoms: [ 
         { type: String, required: true },
     ],
-    levels: [ 
-        {
-            score: { type: Number, required: true },
-            symptom: { type: String, required: true },
-        },
+    scores: [ 
+        { type: Number, required: true },
+    ],
+    symptoms: [ 
+        { type: String, required: true },
     ],
     causes: [
         { type: String },
