@@ -23,13 +23,16 @@ router.get(
 
 router.get(
     ROUTES.ADD_DISEASES_PATH,
+    auth.authenticateUser,
+    auth.authorizeDoctor,
     diseaseController.getAddDiseasesPage,
 );
 
 router.post(
     ROUTES.ADD_DISEASES_PATH,
-    (req, res, next) => {
-        res.json({ disease: req.body});
-});
+    auth.authenticateUser,
+    auth.authorizeDoctor,
+    diseaseController.addDiseasesToDiseaseCollection,
+);
 
 module.exports = router;

@@ -126,3 +126,15 @@ button {
     fill: rgb(194, 61, 37);
     transition: 0.2s ease-out;
 }
+.disease-list {
+  margin: 0 auto;
+}
+.card {
+  margin: 30px auto;
+  padding: 20px 10px;
+  border: none;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+.card:hover {
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}

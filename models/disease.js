@@ -10,6 +10,10 @@ const DiseaseSchema = new Schema({
         trim: true,
         index: true,
     },
+    description: {
+        type: String,
+        required: true,
+    },
     genral_symptoms: [ 
         { type: String, required: true },
     ],

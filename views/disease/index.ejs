@@ -1,5 +1,71 @@
 <%- include('../partials/header') %>
-<div class="center display-1">
-    Listing Disease <%= disease %>
+<div class="center display-4">
+    Listing Disease
+</div>
+<div class="container justify-content-center">
+    <% disease.forEach((disease_value, disease_index, disease_array) => { %>
+        <div class="col-8 disease-list">
+            <div class="card">
+                <div class="container">
+                    <h2>
+                        <%= disease_value.name %>
+                    </h2>
+                    <div class="mb-3">
+                        <%= disease_value.description %>
+                    </div>
+                    <div>
+                        <a class="mr-3 btn btn-sm btn-dark" data-toggle="collapse" href="#genral_symptoms<%= disease_index %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            genral symptoms
+                        </a>
+                        <a class="mr-3 btn btn-sm btn-dark" data-toggle="collapse" href="#score_symptoms<%= disease_index %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            scores and symptoms
+                        </a>
+                        <a class="mr-3 btn btn-sm btn-dark" data-toggle="collapse" href="#causes<%= disease_index %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            causes
+                        </a>
+                    </div>
+
+                    <div class="collapse" id="genral_symptoms<%= disease_index %>">
+                        <div class="my-3">
+                            <ul class="list-group list-group-flush">
+                            <% disease_value.genral_symptoms.forEach((genral_value, genral_index, genral_array) => { %>
+                                <li class="list-group-item"><%= genral_value %></li>                            
+                            <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapse" id="score_symptoms<%= disease_index %>">
+                        <div class="row">
+                            <div class="col-2 my-3">
+                                <ul class="list-group list-group-flush">
+                                    <% disease_value.scores.forEach((score_value, score_index, score_array) => { %>
+                                          <li class="list-group-item"><%= score_value%></li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                            <div class="col-10 my-3">
+                                <ul class="list-group list-group-flush">
+                                    <% disease_value.symptoms.forEach((symptoms_value, symptoms_index, symptoms_array) => { %>
+                                          <li class="list-group-item"><%= symptoms_value%></li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse" id="causes<%= disease_index %>">
+                        <div class="my-3">
+                            <ul class="list-group list-group-flush">
+                            <% disease_value.causes.forEach((cause_value, couse_index, cause_array) => { %>
+                                <li class="list-group-item"><%= cause_value %></li>                            
+                            <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <% }); %>
 </div>
 <%- include('../partials/footer') %>
