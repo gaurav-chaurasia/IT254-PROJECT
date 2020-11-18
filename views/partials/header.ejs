@@ -60,9 +60,6 @@
       <div class="container">
         <ul class="navbar-nav">
           <a class="navbar-brand" href="#">DLHD</a>
-          <li class="nav-item">
-            <a class="nav-link mx-3" href="<%= ROUTES.TESTS_PATH %>">tests</a>
-          </li>
         </ul>
         <!-- Links -->
         <ul class="navbar-nav">
@@ -93,6 +90,8 @@
               <a class="dropdown-item" href="#">Another action</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="<%= ROUTES.TESTS_PATH %>">tests</a>
             </div>
           </div>
           <% } else { %>

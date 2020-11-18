@@ -140,20 +140,26 @@ button {
   margin: 30px auto;
   padding: 20px 10px;
   border: none;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+  /* box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08); */
 }
 .card:hover {
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
 }
 
 #filter_input {
   margin: 0 auto;
   margin-top: 30px;
   width: 50%;
-  padding: 5px 20px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+  /* border-left: none;
+  border-right: none; */
+}
+#filter_input:hover {
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 
 #filter_input:focus {

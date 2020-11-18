@@ -72,7 +72,6 @@ const filterDisease = () => {
 
   for(let i = 0; i < element.length; i++) {
 
-    console.log(disease_name[i]);
     let textValue = disease_name[i].textContent || disease_name[i].innerHTML;
 
     if (textValue.toUpperCase().indexOf(filter_input) > -1) {
