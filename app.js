@@ -78,7 +78,6 @@ app.use((req, res, next) => {
   res.locals.danger       = req.flash('danger');
   res.locals.success      = req.flash('success');
   res.locals.warning      = req.flash('warning');
-  // console.log(info);
   next();
 });
 

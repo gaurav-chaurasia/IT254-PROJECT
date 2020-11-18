@@ -16,7 +16,7 @@ const getAddDiseasesPage = (req, res) => {
 
 const getAllDiseases = async (req, res) => {
     try {
-        const disease = await Disease.find({});
+        const disease = await Disease.find({}).sort({'updatedAt': -1});
         res.render('disease/index', {disease: disease});
     } catch (err) {
         req.flash('danger', 'Opps! somthing went wrong, couldn\'t retrive requierd details');

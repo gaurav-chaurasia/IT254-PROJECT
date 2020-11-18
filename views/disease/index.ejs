@@ -1,6 +1,15 @@
 <%- include('../partials/header') %>
-<div class="center display-4 mt-3">Disease their cause, and symptoms</div>
-<div class="container justify-content-center">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="left">
+      <div class="display-4">Disease their cause, and symptoms</div>
+      <p class="lead">diseases, infractions, levels of diff diseases with symptoms are listed below you can filter them by simply writing keywords for a particular disease.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="center-xy">
     <input
       type="text"
@@ -10,12 +19,13 @@
     />
   </div>
 </div>
+
 <div class="container justify-content-center">
   <% disease.forEach((disease_value, disease_index, disease_array) => { %>
   <div class="col-8 disease-list">
     <div class="card disease_card<%= disease_index %>">
       <div class="container">
-        <h2 class="disease-name"><%= disease_value.name %></h2>
+        <h2 class="disease-name display-4"><%= disease_value.name %></h2>
         <div class="mb-3"><%= disease_value.description %></div>
         <div>
           <a
@@ -96,4 +106,5 @@
   </div>
   <% }); %>
 </div>
+
 <%- include('../partials/footer') %>
