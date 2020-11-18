@@ -64,3 +64,22 @@ $(document).ready(function() {
     x--;
   })
 });
+
+const filterDisease = () => {
+  let filter_input = document.getElementById('filter_input').value.toUpperCase();
+  let element = document.querySelectorAll('.disease-list');
+  let disease_name = document.querySelectorAll('.disease-name');
+
+  for(let i = 0; i < element.length; i++) {
+
+    console.log(disease_name[i]);
+    let textValue = disease_name[i].textContent || disease_name[i].innerHTML;
+
+    if (textValue.toUpperCase().indexOf(filter_input) > -1) {
+      element[i].style.display = "";
+    } else {
+      element[i].style.display = "none";
+    }
+
+  }
+};

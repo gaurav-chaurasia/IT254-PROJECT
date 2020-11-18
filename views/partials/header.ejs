@@ -63,11 +63,6 @@
           <li class="nav-item">
             <a class="nav-link mx-3" href="<%= ROUTES.TESTS_PATH %>">tests</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" href="<%= ROUTES.DISEASES_PATH %>"
-              >diseases</a
-            >
-          </li>
         </ul>
         <!-- Links -->
         <ul class="navbar-nav">
@@ -80,10 +75,26 @@
           <li class="nav-item">
             <a class="nav-link mx-3" href="/">Medicine</a>
           </li>
-          <% if (currentUser) { %>
           <li class="nav-item">
-            <a class="nav-link mx-3" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
+            <a class="nav-link mx-3" href="<%= ROUTES.DISEASES_PATH %>"
+              >Diseases</a
+            >
           </li>
+          <% if (current_user) { %>
+          <div class="dropdown nav-item">
+            <a class="nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dashboard
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% if (current_user && (current_user.role == 'DOCTOR' || current_user.role == 'ADMIN')) { %>
+              <a class="dropdown-item" href="<%= ROUTES.ADD_DISEASES_PATH %>">add diseases</a>
+              <% } %>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="<%= ROUTES.LOGOUT_PATH %>">Logout</a>
+            </div>
+          </div>
           <% } else { %>
           <li class="nav-item">
             <a class="nav-link mx-3" href="<%= ROUTES.LOGIN_PATH %>">Login</a>

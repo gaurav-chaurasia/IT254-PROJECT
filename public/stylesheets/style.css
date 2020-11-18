@@ -3,7 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
+body {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
 .center {
   text-align: center;
 }
@@ -137,4 +144,18 @@ button {
 }
 .card:hover {
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
+
+#filter_input {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 50%;
+  padding: 5px 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+#filter_input:focus {
+  outline: none !important;
 }

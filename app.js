@@ -72,12 +72,12 @@ app.use(flash());
 // set local variables 
 // ----------------------------------------
 app.use((req, res, next) => {
-  res.locals.ROUTES = ROUTES;
-  res.locals.currentUser = req.user;
-  res.locals.info = req.flash('info');
-  res.locals.danger = req.flash('danger');
-  res.locals.success = req.flash('success');
-  res.locals.warning = req.flash('warning');
+  res.locals.ROUTES       = ROUTES;
+  res.locals.current_user = req.user;
+  res.locals.info         = req.flash('info');
+  res.locals.danger       = req.flash('danger');
+  res.locals.success      = req.flash('success');
+  res.locals.warning      = req.flash('warning');
   // console.log(info);
   next();
 });
