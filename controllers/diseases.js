@@ -11,13 +11,13 @@ const Disease = require('../models/disease');
 
 
 const getAddDiseasesPage = (req, res) => {
-    res.render('disease/add');
+    res.render('diseases/add');
 };
 
 const getAllDiseases = async (req, res) => {
     try {
         const disease = await Disease.find({}).sort({'updatedAt': -1});
-        res.render('disease/index', {disease: disease});
+        res.render('diseases/index', {disease: disease});
     } catch (err) {
         req.flash('danger', 'Opps! somthing went wrong, couldn\'t retrive requierd details');
         res.redirect(ROUTES.ROOT_PATH);
