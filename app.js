@@ -1,26 +1,27 @@
 // ----------------------------------------
 // import node modules
 // ----------------------------------------
-const createError = require('http-errors');
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+const createError  = require('http-errors');
+const express      = require('express');
+const mongoose     = require('mongoose');
+const path         = require('path');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
-const passport = require('passport');
-const flash = require('connect-flash');
+const logger       = require('morgan');
+const session      = require('express-session');
+const FileStore    = require('session-file-store')(session);
+const passport     = require('passport');
+const flash        = require('connect-flash');
 require('dotenv').config();
 
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
-const config = require('./config/config')[process.env.NODE_ENV || 'development'];
-const { ROUTES } = require('./config/ROUTES');
-const userRouter = require('./routes/users');
-const diseaseRouter = require('./routes/diseases');
-const testRouter = require('./routes/tests');
+const config         = require('./config/config')[process.env.NODE_ENV || 'development'];
+const { ROUTES }     = require('./config/ROUTES');
+const userRouter     = require('./routes/users');
+const diseaseRouter  = require('./routes/diseases');
+const medicineRouter = require('./routes/medicines');
+const testRouter     = require('./routes/tests');
 
 
 // ----------------------------------------
@@ -88,6 +89,7 @@ app.use((req, res, next) => {
 app.use(testRouter);
 app.use(userRouter);
 app.use(diseaseRouter);
+app.use(medicineRouter);
 
 
 // ----------------------------------------

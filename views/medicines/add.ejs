@@ -1,0 +1,92 @@
+<%- include('../partials/header') %>
+<div>
+  <h3 class="center my-3">Add Medicine Details</h3>
+  <div class="container" style="width: 50%">
+    <form action="<%= ROUTES.ADD_MEDICINES_PATH %>" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input class="form-control" type="number" name="price" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          name="description"
+          name=""
+          id=""
+          cols="30"
+          rows="5"
+        ></textarea>
+      </div>
+
+      <div class="seperator"></div>
+      <hr />
+      <div class="form-group">
+        <div class="input_score_diseases_wrap">
+          <label for="score_diseases">Scores and Disease Name</label>
+          <button class="add_score_diseases_button mb-3">
+            <svg
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 496 496"
+              style="enable-background: new 0 0 496 496"
+              xml:space="preserve"
+            >
+              <g>
+                <path
+                  d="M248,0C111.033,0,0,111.033,0,248c0.154,136.903,111.097,247.846,248,248c136.967,0,248-111.033,248-248S384.967,0,248,0
+                  z M248,480C119.87,480,16,376.13,16,248C16.146,119.93,119.93,16.146,248,16c128.13,0,232,103.87,232,232S376.13,480,248,480z"
+                />
+                <path
+                  d="M400,240H256V96c0-4.418-3.582-8-8-8s-8,3.582-8,8v144H96c-4.418,0-8,3.582-8,8s3.582,8,8,8h144v144c0,4.418,3.582,8,8,8
+                  s8-3.582,8-8V256h144c4.418,0,8-3.582,8-8S404.418,240,400,240z"
+                />
+              </g>
+            </svg>
+          </button>
+          <div class="row">
+            <div class="col-2">
+              <label for="contribution">score</label>
+              <input
+                class="form-control scores mb-3"
+                type="number"
+                name="scores"
+              />
+            </div>
+            <div class="col-10">
+              <label for="disease">disease name</label>
+              <select
+                class="form-control disease-name-for-medicine mb-3"
+                name="diseases"
+                id="first-disease-for-meds"
+              >
+                <% diseases.forEach((disease_value, disease_index,
+                disease_array) => { %>
+                <option value="<%= disease_value.name %>">
+                  <%= disease_value.name %> { scores: [<%= disease_value.scores
+                  %>] }
+                </option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-dark">add to list</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('../partials/footer') %>

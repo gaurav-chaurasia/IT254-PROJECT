@@ -20,38 +20,58 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 const authenticateUser = (req, res, next) => {
-	if (!req.user) {
-		var err = new Error('You are not authenticated!');
-		err.status = 401;
-		return next(err);
-	}
+	if (req.user) {
+        next();
+    }
 	else {
-		next();
+        var err = new Error('You are not authenticated!');
+        err.status = 401;
+        return next(err);
 	}
 }
 
-const authorizeDoctor = (req, res, next) => {
-    if (req.user.role !== 'DOCTOR') {
-        req.flash('warning', 'Access denied! you do not have permission for this operation.');
-        res.redirect(ROUTES.ROOT_PATH);
+const authorizeOnlyDoctor = (req, res, next) => {
+    if (req.user.role === 'DOCTOR') {
+        next();
     }
     else {
+        req.flash(
+            'warning', 
+            'Access denied! you do not have permission for this operation.'
+        );
+        res.redirect(ROUTES.ROOT_PATH);
+    }
+}
+
+const authorizeDoctor = (req, res, next) => {
+    if (req.user.role === 'DOCTOR' || req.user.role === 'ADMIN') {
         next();
+    }
+    else {
+        req.flash(
+            'warning', 
+            'Access denied! you do not have permission for this operation.'
+        );
+        res.redirect(ROUTES.ROOT_PATH);
     }
 }
 
 const authorizeAdmin = (req, res, next) => {
-    if (req.user.role !== 'ADMIN') {
-        req.flash('warning', 'Access denied! you do not have permission for this operation.');
-        res.redirect(ROUTES.ROOT_PATH);
+    if (req.user.role === 'ADMIN') {
+        next();
     }
     else {
-        next();
+        req.flash(
+            'warning', 
+            'Access denied! you do not have permission for this operation.'
+        );
+        res.redirect(ROUTES.ROOT_PATH);
     }
 }
 
 module.exports = {
     authenticateUser,
+    authorizeOnlyDoctor,
     authorizeDoctor,
     authorizeAdmin,
 }
