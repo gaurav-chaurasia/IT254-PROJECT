@@ -239,9 +239,6 @@ button {
     transition:.3s; 
     margin-top:0; 
   }
-  .navbar .nav-item:hover .nav-link { 
-    color: rgb(54, 54, 54); 
-  }
   .navbar .dropdown-menu.fade-down { 
     top:80%; 
     transform: rotateX(-75deg); 
