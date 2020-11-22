@@ -22,5 +22,10 @@ exports.ROUTES = {
     'UPDATE_MEDICINE_PATH': '/medicines/:id/update',  // update specific medicine
     'DELETE_MEDICINE_PATH': '/medicines/:id/delete',  // delete specific medicine
 
+    'MAPS_PATH': '/maps',                         // get map and all points on that
+    'ADD_LOCATION_PATH': '/maps/add',             // adds current_user's location to DB
+    'UPDATE_LOCATION_PATH': '/maps/:id/update',   // updates current_user's location in DB
+    'DELETE_LOCATION_PATH': '/maps/:id/delete',   // deletes current_user's location from DB
+
     'TESTS_PATH': '/tests',
 }

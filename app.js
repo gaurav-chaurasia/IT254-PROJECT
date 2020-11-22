@@ -19,6 +19,7 @@ require('dotenv').config();
 const config         = require('./config/config')[process.env.NODE_ENV || 'development'];
 const { ROUTES }     = require('./config/ROUTES');
 const userRouter     = require('./routes/users');
+const mapRouter      = require('./routes/maps');   
 const diseaseRouter  = require('./routes/diseases');
 const medicineRouter = require('./routes/medicines');
 const testRouter     = require('./routes/tests');
@@ -88,6 +89,7 @@ app.use((req, res, next) => {
 // ----------------------------------------
 app.use(testRouter);
 app.use(userRouter);
+app.use(mapRouter);
 app.use(diseaseRouter);
 app.use(medicineRouter);
 
