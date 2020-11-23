@@ -31,7 +31,10 @@ const registerUser = (req, res) => {
 		if(err) {
 			// res.status(500);
 			// res.json({err: err});
-			req.flash('success', err);
+			req.flash(
+				'success', 
+				err
+			);
 			res.redirect(ROUTES.LOGIN_PATH);
 			
 		}
@@ -39,7 +42,10 @@ const registerUser = (req, res) => {
 			passport.authenticate('local')(req, res, () => {
 				// res.status(200);
 				// res.json({success: true, message: 'Registration Successful!'});
-				req.flash('success', 'Registration Successful!');
+				req.flash(
+					'success', 
+					'Registration Successful!'
+				);
 				res.redirect(ROUTES.LOGIN_PATH);
 			});
 		}
@@ -58,16 +64,25 @@ const loginUser = (req, res, next) => {
             //     message: 'Login Unsuccessful!', 
             //     err: info
 			// });
-			req.flash('info', info);
+			req.flash(
+				'info', 
+				info
+			);
 			res.redirect(ROUTES.LOGIN_PATH);
 		}
 		req.logIn(user, (err) => {
 			if(err) {
-				req.flash('danger', 'Login Unsuccessful!');
+				req.flash(
+					'danger', 
+					'Login Unsuccessful!'
+				);
 				res.redirect(ROUTES.LOGIN_PATH);
 			}
 			
-			req.flash('success', 'You are Successfully logged in!');
+			req.flash(
+				'success', 
+				'You are Successfully logged in!'
+			);
 			res.redirect(ROUTES.ROOT_PATH);
 		});
 	}) (req, res, next);

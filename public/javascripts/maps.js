@@ -1,4 +1,7 @@
+
 const mapContainer = document.getElementById('map');
+const redDot = "https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0";
+const blueDot = "https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0";
 
 function initMap() {
 
@@ -22,6 +25,6 @@ function initMap() {
             lng: options.center.lng,
         },
         map: map,
-        icon: "https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0"
+        icon: blueDot,
     });
 }
