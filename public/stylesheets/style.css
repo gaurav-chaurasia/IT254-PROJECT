@@ -256,4 +256,9 @@ button {
   }
 }
 
+#Capa_1 {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #4d4d4d;
+}
 /* bootstrap dropdown animation end */

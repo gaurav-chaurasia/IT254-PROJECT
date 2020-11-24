@@ -1,4 +1,3 @@
-
 const mapContainer = document.getElementById('map');
 const redDot = "https://storage.googleapis.com/support-kms-prod/SNP_2752125_en_v0";
 const blueDot = "https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0";
@@ -27,4 +26,9 @@ function initMap() {
         map: map,
         icon: blueDot,
     });
+}
+
+function showPointsOnMap(coords) {
+    const a = document.getElementById('secret-location-data');
+    console.log(a);
 }
