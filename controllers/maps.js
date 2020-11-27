@@ -15,8 +15,11 @@ const getMapsIndexPage = async (req, res, next) => {
         let user_location = null, locations = null;
         if (req.user) {
             user_location = await Location.find({ user: req.user._id }, { _id: 0 });
+            locations = await Location.find({ user: { $ne: req.user._id } }, { _id: 0 });
+        } else{
+            locations = await Location.find({}, { _id: 0 });
         } 
-        locations = await Location.find({ user: { $ne: req.user._id } }, { _id: 0 });
+
         res.render(
             'maps/index',
             {
