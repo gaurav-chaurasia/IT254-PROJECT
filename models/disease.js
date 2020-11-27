@@ -16,16 +16,27 @@ const DiseaseSchema = new Schema({
         required: true,
     },
     genral_symptoms: [ 
-        { type: String, required: true },
+        { 
+            type: String, 
+            required: true,
+        },
     ],
     scores: [ 
-        { type: Number, required: true },
+        { 
+            type: Number, 
+            required: true, 
+        },
     ],
     symptoms: [ 
-        { type: String, required: true },
+        { 
+            type: String, 
+            required: true, 
+        },
     ],
     causes: [
-        { type: String },
+        { 
+            type: String 
+        },
     ]
 }, {
     timestamps: true

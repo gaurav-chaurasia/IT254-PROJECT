@@ -40,6 +40,7 @@
   </head>
   <body>
     <!-- BODY STARTS -->
+    <%- include('../partials/message') %>
     <div class="navigation-on-map">
       <a
         class="nav-link map-nav"
@@ -97,21 +98,48 @@
           <a class="dropdown-item" href="<%= ROUTES.ROOT_PATH %>">Home</a>
           <a class="dropdown-item" href="#">Test</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= ROUTES.ADD_LOCATION_PATH %>"
+          <a 
+            class="dropdown-item" 
+            id="addLocation" 
+            href="#"
             >Add location</a
           >
-          <a class="dropdown-item" href="<%= ROUTES.UPDATE_LOCATION_PATH %>"
+          <a 
+            class="dropdown-item"
+            id="updateLocation" 
+            href="#"
             >Update location</a
           >
-          <a class="dropdown-item" href="<%= ROUTES.DELETE_LOCATION_PATH %>"
+          <a 
+            class="dropdown-item"
+            id="deleteLocation"
+            href="#"
             >Delete location</a
           >
         </div>
       </div>
     </div>
     <div id="map"></div>
-    <div id="secret-location-data" style="display: none;">
+    
+    <div id="secret-location-data" style="display: none !important;">
       <!-- location data to use in maps.js -->
+      <div id="user_location">
+        <% if (user_location) { %>
+          <% user_location.forEach((value, index, array) => { %>
+            <span id="lat"><%= value.latitude %></span>
+            <span id="lng"><%= value.longitude %></span>
+          <% }); %>
+        <% } %>
+      </div>
+
+      <div id="locations">
+        <% if (locations) { %>
+          <% locations.forEach((value, index, array) => { %>
+            <span id="lat"><%= value.latitude %></span>
+            <span id="lng"><%= value.longitude %></span>
+          <% }); %>
+        <% } %>
+      </div>
     </div>
     <!-- BODY ENDS -->
 
@@ -120,7 +148,7 @@
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=<% API_KEY %>&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=<%= API_KEY %>&callback=initMap"
       type="text/javascript"
     ></script>
   </body>
