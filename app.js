@@ -3,6 +3,7 @@
 // ----------------------------------------
 const createError  = require('http-errors');
 const express      = require('express');
+const app = express();
 const mongoose     = require('mongoose');
 const path         = require('path');
 const cookieParser = require('cookie-parser');
@@ -23,6 +24,7 @@ const mapRouter      = require('./routes/maps');
 const diseaseRouter  = require('./routes/diseases');
 const medicineRouter = require('./routes/medicines');
 const testRouter     = require('./routes/tests');
+const homeRouter     = require('./routes/home');
 
 
 // ----------------------------------------
@@ -39,7 +41,7 @@ mongoose
 mongoose.connection.on('error', (err) => {
   console.log('Database connection error:' + err);
 });
-const app = express();
+
 
 
 // ----------------------------------------
@@ -92,6 +94,7 @@ app.use(userRouter);
 app.use(mapRouter);
 app.use(diseaseRouter);
 app.use(medicineRouter);
+app.use(homeRouter);
 
 
 // ----------------------------------------
