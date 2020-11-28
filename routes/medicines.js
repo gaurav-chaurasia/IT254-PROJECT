@@ -30,7 +30,7 @@ router.get(
 router.post(
     ROUTES.ADD_MEDICINES_PATH,
     auth.authenticateUser,
-    auth.authorizeDoctor,
+    auth.authorizeOnlyDoctor,
     medicineController.addMedicinesToMedicineCollection,
 );
 

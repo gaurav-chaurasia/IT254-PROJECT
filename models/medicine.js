@@ -23,16 +23,13 @@ const MedicineSchema = new Schema({
     diseases: [
         { 
             type: String, 
-            lowercase: true, 
             required: true,
-            unique: true, 
         },
     ],
     scores: [
         { 
             type: Number, 
             required: true,
-            unique: true,
         },
     ],
     // uses: [
