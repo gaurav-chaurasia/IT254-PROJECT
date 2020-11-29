@@ -117,7 +117,7 @@
 <div class="home-section-title-wrap">
   <div class="home-section-title">
     <p class="container display-4">
-      <strong> Top Diseases </strong>
+      <strong> Top Diseases You Should know about</strong>
     </p>
   </div>
   <hr />
@@ -151,7 +151,7 @@
 <div class="home-section-title-wrap">
   <div class="home-section-title">
     <p class="container display-4">
-      <strong> Top Medicines </strong>
+      <strong> Top Medicines You Should know about </strong>
     </p>
   </div>
   <hr />
@@ -166,6 +166,15 @@
           <h5 class="card-title"><%= value.name %></h5>
           <p class="card-text"><%= value.description.substring(0, 100) %>...</p>
           <!-- <a href="/users/login" class="btn btn-dark">Login</a> -->
+          <% value.diseases.forEach((dis_value, dis_index, dis_array) => { %>
+            <% if (dis_index < 3) { %>
+              <span class="alert alert-dark" style="padding: 1px 5px; border-radius: 2px !important;"><%= dis_value %></span>
+            <% } else { %>
+              <a href="/medicines">
+                <span class="alert alert-dark" style="padding: 1px 5px;"> + </span>
+              </a>
+            <% } %>
+          <% }); %>
         </div>
       </div>
     </div>
