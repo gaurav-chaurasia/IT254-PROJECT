@@ -3,7 +3,7 @@
 // ----------------------------------------
 const createError  = require('http-errors');
 const express      = require('express');
-const app = express();
+const app          = express();
 const mongoose     = require('mongoose');
 const path         = require('path');
 const cookieParser = require('cookie-parser');
@@ -114,7 +114,7 @@ app.use((err, req, res, next) => {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status = err.status || 500;
   res.render('error');
 });
 

@@ -11,10 +11,10 @@
 ```
 
 - Now run the server by running following command
-  - devStart runs the sever with nodemon which automatically restart server everytime we make any changes  
+  - dev runs the sever with nodemon which automatically restart server everytime we make any changes  
 
 ```js
-    $ npm run devStart
+    $ npm run dev
         or 
     $ npm start
 ```

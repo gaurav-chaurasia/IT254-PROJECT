@@ -54,6 +54,9 @@ const addMedicinesToMedicineCollection = async (req, res, next) => {
             res.redirect(ROUTES.MEDICINES_PATH);
         }
     } catch (err) {
+        if (NODE_ENV === 'development') {
+            next(err);   
+        }
         req.flash(
             'danger', 
             'Somthing went wrong please try aging!'
