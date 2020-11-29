@@ -1,4 +1,3 @@
-<%= medicines %>
 <%- include('../partials/header') %>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
@@ -22,7 +21,7 @@
 
 <div class="container justify-content-center">
   <% medicines.forEach((medicine_value, medicine_index, medicine_array) => { %>
-  <div class="col-8 disease-list">
+  <div class="col-12 disease-list">
     <div class="card disease_card<%= medicine_index %>">
       <div class="container">
         <h2 class="disease-name display-4"><%= medicine_value.name %></h2>
@@ -37,7 +36,7 @@
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            scores and symptoms
+            scores and diseases
           </a>
           
         </div>
@@ -64,7 +63,6 @@
           </div>
         </div>
         
-        </div>
       </div>
     </div>
   </div>
