@@ -1,1 +1,71 @@
-<%= medicines %>
+<%- include('../partials/header') %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="left">
+      <div class="display-4">Medicine Cure for diseases</div>
+      <p class="lead">Medicine for diseases based on symptomes provided are listed below you can filter them by simply writing keywords for a particular medicine.</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="center-xy">
+    <input
+      type="text"
+      id="filter_input"
+      onkeyup="filterMedicine()"
+      placeholder="search by medicine name..."
+    />
+  </div>
+</div>
+
+
+<div class="container justify-content-center">
+  <% medicines.forEach((medicine_value, medicine_index, medicine_array) => { %>
+  <div class="col-12 disease-list">
+    <div class="card disease_card<%= medicine_index %>">
+      <div class="container">
+        <h2 class="disease-name display-4"><%= medicine_value.name %></h2>
+        <div class="mb-3"><%= medicine_value.description %></div>
+        <div>
+        
+          <a
+            class="mr-3 btn btn-sm btn-dark"
+            data-toggle="collapse"
+            href="#score_symptoms<%= medicine_index %>"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            scores and diseases
+          </a>
+          
+        </div>
+
+
+        <div class="collapse" id="score_symptoms<%= medicine_index %>">
+          <div class="row">
+            <div class="col-2 my-3">
+              <ul class="list-group list-group-flush">
+                <% medicine_value.scores.forEach((score_value, score_index,
+                score_array) => { %>
+                <li class="list-group-item"><%= score_value%></li>
+                <% }) %>
+              </ul>
+            </div>
+            <div class="col-10 my-3">
+              <ul class="list-group list-group-flush">
+                <% medicine_value.diseases.forEach((symptoms_value,
+                symptoms_index, symptoms_array) => { %>
+                <li class="list-group-item"><%= symptoms_value%></li>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <% }); %>
+</div>
+<%- include('../partials/footer') %>
