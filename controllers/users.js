@@ -89,15 +89,25 @@ const loginUser = (req, res, next) => {
 }
 
 const logoutUser = (req, res, next) => {
-    if (req.session) {
-		req.session.destroy();
-		res.clearCookie(config.session);
+    if (req.session && req.user) {
+		// req.session.destroy();
+		// res.clearCookie(config.session);
+		req.logout();
+		req.flash(
+			'danger', 
+			'You are Successfully logged out!'
+		);
 		res.redirect(ROUTES.ROOT_PATH);
 	}
 	else {
-		var err = new Error('You are not logged in!');
-		err.status = 403;
-		next(err);
+		req.flash(
+			'info', 
+			'You are already logged out!'
+		);
+		res.redirect(ROUTES.ROOT_PATH);
+		// var err = new Error('You are not logged in!');
+		// err.status = 403;
+		// next(err);
 	}
 }
 

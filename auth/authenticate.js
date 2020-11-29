@@ -24,9 +24,14 @@ const authenticateUser = (req, res, next) => {
         next();
     }
 	else {
-        var err = new Error('You are not authenticated!');
-        err.status = 401;
-        return next(err);
+        // var err = new Error('You are not authenticated!');
+        // err.status = 401;
+        // return next(err);
+        req.flash(
+			'info', 
+			'You are not authenticated!'
+		);
+		res.redirect(ROUTES.ROOT_PATH);
 	}
 }
 

@@ -156,6 +156,10 @@ button {
 .disease-list {
   margin: 0 auto;
 }
+
+.medicine-list {
+  margin: 0 auto;
+}
 .card {
   margin: 30px auto;
   padding: 20px 10px;
@@ -167,7 +171,24 @@ button {
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
 }
 
-#filter_input {
+#filter-option {
+  border: none;
+  padding: 10px 15px;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+  border-radius: 20px;
+  margin: 0 10px;
+}
+
+#filter-option option {
+  border: none;
+  padding: 10px 15px !important;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+  border-radius: 20px;
+  margin: 0 10px;
+}
+
+#filter_input,
+#medicine_filter_input {
   margin: 0 auto;
   margin-top: 30px;
   width: 50%;
@@ -178,11 +199,16 @@ button {
   /* border-left: none;
   border-right: none; */
 }
-#filter_input:hover {
+
+#filter-option:hover,
+#filter_input:hover,
+#medicine_filter_input:hover {
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 
-#filter_input:focus {
+#filter-option:focus,
+#filter_input:focus,
+#medicine_filter_input:focus {
   outline: none !important;
 }
 

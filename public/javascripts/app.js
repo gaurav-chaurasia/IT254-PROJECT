@@ -90,21 +90,78 @@ $(document).ready(function() {
 
 const filterDisease = () => {
   let filter_input = document.getElementById('filter_input').value.toUpperCase();
-  let element = document.querySelectorAll('.disease-list');
+  let element      = document.querySelectorAll('.disease-list');
   let disease_name = document.querySelectorAll('.disease-name');
 
   for(let i = 0; i < element.length; i++) {
 
-    let textValue = disease_name[i].textContent || disease_name[i].innerHTML;
+    let textValue = disease_name[i].textContent || 
+                    disease_name[i].innerHTML;
 
-    if (textValue.toUpperCase().indexOf(filter_input) > -1) {
+    if (
+      textValue
+      .toUpperCase()
+      .indexOf(filter_input) > -1
+    ) {
       element[i].style.display = "";
     } else {
       element[i].style.display = "none";
     }
-
+    
   }
 };
+
+
+const filterMedicine = () => {
+  let filter_option = document.getElementById('filter-option').value;
+  let filter_input  = document.getElementById('medicine_filter_input').value.toUpperCase();
+  let element       = document.querySelectorAll('.medicine-list');
+  let medicine_name = document.querySelectorAll('.medicine-name')
+
+  if (filter_option == 'medicine') {
+    for(let i = 0; i < element.length; i++) {
+      
+      let textValue = medicine_name[i].textContent || 
+                      medicine_name[i].innerHTML;
+      
+      if (
+        textValue
+        .toUpperCase()
+        .indexOf(filter_input) > -1
+      ) {
+        element[i].style.display = "";
+      } else {
+        element[i].style.display = "none";
+      }
+
+    }
+  } else {
+    for(let i = 0; i < element.length; i++) {
+      let selector_class = `.med_disease_name_${i}`;
+      let disease_names  = document.querySelectorAll(selector_class);
+      
+      for(let j = 0; j < disease_names.length; j++) {
+        
+        let textValue = disease_names[j].textContent || 
+                        disease_names[j].innerHTML;
+        
+        if (
+          textValue
+          .toUpperCase()
+          .indexOf(filter_input) > -1
+        ) {
+          element[i].style.display = "";
+          break;
+        } else {
+          element[i].style.display = "none";
+        }
+
+      }
+    }
+  }
+};
+
+
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
