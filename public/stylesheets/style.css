@@ -292,6 +292,31 @@ button {
   border: none;
 }
 
+.btn-link-2 {
+	display: inline-block;
+  height: 50px;
+  width: 200%;
+	padding: 10px 20px;
+	background: #db4a39;
+	border: 1px solid #fff;
+	font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  -moz-border-radius: 4px; 
+  -webkit-border-radius: 4px; 
+  border-radius: 4px;
+  transform: translateX(-80px);
+}
+.btn-link-2:hover, 
+.btn-link-2:focus, 
+.btn-link-2:active, 
+.btn-link-2:active:focus { 
+  outline: 0; 
+  opacity: 1; 
+  background: #b83e31; 
+  color: #fff; 
+}
+
 
 /* bootstrap dropdown animation start */
 @media (min-width: 992px) {
