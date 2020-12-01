@@ -11,15 +11,22 @@ const config     = require('../config/config')[process.env.NODE_ENV || 'developm
 const { ROUTES } = require('../config/ROUTES');
 const User       = require('../models/user'); 
 
-
-passport.serializeUser((user, done) => {
-    done(null, user);
-}); 
-passport.deserializeUser((user, done) => {
-    User.findById(user._id, (err, user) => {
-        done(err, user);
-    });
-});
+// ----------------------------------------
+// save user data as cookies in user's browser
+// ----------------------------------------
+passport.serializeUser(
+    (user, done) => {
+        done(null, user);
+    }
+); 
+// ----------------------------------------
+// 
+// ----------------------------------------
+passport.deserializeUser(
+    (user, done) => {
+        done(null, user);
+    }
+);
 
 
 passport.use(new GoogleStrategy({
@@ -32,8 +39,9 @@ passport.use(new GoogleStrategy({
         try {
             const user = await User.findOne({ email: profile.email });
             if (user) {
-                console.log(user);
-                console.log('user found');
+                // debug oauth
+                // console.log(user);
+                // console.log('user found');
                 return done(null, user);
             } else {
                 const newUser = await User.create({
@@ -43,7 +51,8 @@ passport.use(new GoogleStrategy({
                     profilePicUrl: profile.picture,
                     verified:      profile.verified,
                 });
-                console.log('user created');
+                // debug oauth
+                // console.log('user created');
                 return done(null, newUser);
             }
         } catch (err) {
