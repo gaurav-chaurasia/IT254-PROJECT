@@ -44,12 +44,12 @@
 `https://nodejs.org/en/docs/`  
 `https://developers.google.com/maps/documentation/javascript/overview`  
 `https://developers.google.com/maps/documentation/geolocation/overview`  
-`http://www.passportjs.org/packages/passport-google-oauth2/`
-`http://www.passportjs.org/docs/downloads/html/`
-`https://expressjs.com/en/4x/api.html`
-`https://mongoosejs.com/docs/api.html`
-`https://docs.mongodb.com/`
-`https://getbootstrap.com/`
+`http://www.passportjs.org/packages/passport-google-oauth2/`  
+`http://www.passportjs.org/docs/downloads/html/`  
+`https://expressjs.com/en/4x/api.html`  
+`https://mongoosejs.com/docs/api.html`  
+`https://docs.mongodb.com/`  
+`https://getbootstrap.com/`  
 
 
 ### Dir Structure 
