@@ -247,27 +247,27 @@ button {
 .m4 .card {
   padding: 0 !important;
   border-radius: 0;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
-  transition: 0.3s;
+  box-shadow: 0px 0px 15px 0 rgba(0,0,0,0.08);
+  transition: 0.2s;
 }
 
 .m4 .card * {
   border-radius: 0;
 }
 .m4 .card:hover {
-  box-shadow: 0px 0px 0px 0 rgba(0,0,0,1);
+  box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.08);
   transform: translateY(5px);
   transition: 0.2s;
   /* box-shadow: none; */
-  border: 1px solid  rgb(0, 0, 0);
+  /* border: 1px solid  rgb(0, 0, 0); */
 }
 
 .m .card {
   padding: 0 !important;
   border-radius: 0;
-  border: 1px solid  rgb(0, 0, 0);
-  box-shadow: 10px 5px 0px 0 rgba(0,0,0,1);
-  /* box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08); */
+  /* border: 1px solid  rgb(0, 0, 0); */
+  /* box-shadow: 10px 5px 0px 0 rgba(0,0,0,1); */
+  box-shadow: 0px 0px 15px 0 rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
@@ -275,17 +275,18 @@ button {
   border-radius: 0;
 }
 .m .card:hover {
-  box-shadow: 0px 0px 0px 0 rgba(0,0,0,1);
-  transform: translateY(10px);
+  box-shadow: 0px 0px 5px 0 rgba(0,0,0,0.08);
+  transform: translateY(5px);
   transition: 0.2s;
-  border: 1px solid  rgb(0, 0, 0);
 }
 
 .home-section-title {
-  transform: translateY(30px);
+  /* transform: translateY(30px); */
+  margin: 50px auto;
+  text-align: center;
 }
 .home-section-title-wrap hr {
-  height: 10px;
+  /* height: 10px; */
   background: #141E30;  
   background: -webkit-linear-gradient(to left, #1f3349, #172338);  
   background: linear-gradient(to left, #1f3349, #172338); 
@@ -295,17 +296,19 @@ button {
 .btn-link-2 {
 	display: inline-block;
   height: 50px;
-  width: 200%;
-	padding: 10px 20px;
-	background: #db4a39;
-	border: 1px solid #fff;
+  padding: 10px 20px;
+  margin: auto 10px;
+	border: 1px solid #ced4da;
 	font-size: 16px;
   font-weight: 300;
-  color: #fff;
+  color: rgb(0, 0, 0);
   -moz-border-radius: 4px; 
   -webkit-border-radius: 4px; 
   border-radius: 4px;
-  transform: translateX(-80px);
+}
+.btn-link-2 img {
+  height: 100%;
+  margin-right: 10px;
 }
 .btn-link-2:hover, 
 .btn-link-2:focus, 
@@ -313,8 +316,7 @@ button {
 .btn-link-2:active:focus { 
   outline: 0; 
   opacity: 1; 
-  background: #b83e31; 
-  color: #fff; 
+  background: rgba(194, 194, 194, 0.151); 
 }
 
 

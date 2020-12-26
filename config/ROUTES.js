@@ -32,5 +32,15 @@ exports.ROUTES = {
     'GOOGLE_OAUTH_S_PATH':  '/auth/google/success',
     'GOOGLE_OAUTH_F_PATH':  '/auth/google/failure',
 
+    'FACEBOOK_AUTH_PATH':    '/auth/facebook',
+    'FACEBOOK_AUTH_CB_PATH': '/auth/facebook/callback',
+    'FACEBOOK_AUTH_S_PATH':  '/auth/facebook/success',
+    'FACEBOOK_AUTH_F_PATH':  '/auth/facebook/failure',
+
+    'GITHUB_AUTH_PATH':    '/auth/github',
+    'GITHUB_AUTH_CB_PATH': '/auth/github/callback',
+    'GITHUB_AUTH_S_PATH':  '/auth/github/success',
+    'GITHUB_AUTH_F_PATH':  '/auth/github/failure',
+
     'TESTS_PATH': '/tests',
 }
