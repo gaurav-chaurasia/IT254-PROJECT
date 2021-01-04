@@ -1,6 +1,6 @@
 # DLHD
 
-> Note: All steps were performed using on Windows 10.
+> Note: All steps were performed using on Windows 10.  
 > [website](#)
 
 - [Installations](docs/install.md)
@@ -25,7 +25,8 @@
 - [x] Proper authentication is present to keep data safe and secure.
 - [x] Third-party authentication is also present (OAuth2.0).
     - [x] Google OAuth2.0 implimented
-    - [ ] Facebook 
+    - [x] Facebook 
+    - [x] GitHub
 
 - [x] Users can see other users nearby with symptoms of any contagious disease.
 - [x] Users can perform CRUD on geospatial data. (create, read, delete, update)
