@@ -32,11 +32,15 @@
 - [x] Users can perform CRUD on geospatial data. (create, read, delete, update)
 - [ ] Live chat with doctor
     - [ ] use web socket 
-
+    - [ ] doctor can prescrib medicine
+    - [ ] perscribtion sent to mail
+    - [ ] user gets notification when doctors replies 
+ 
 - [ ] Capability to pay and buy prescribed medicines
     - [ ] pay using paypal
     - [ ] pay using stripe
 
+- [ ] 
 
 > some imp links
 
