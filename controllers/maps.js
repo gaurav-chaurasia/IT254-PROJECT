@@ -23,6 +23,7 @@ const getMapsIndexPage = async (req, res, next) => {
         res.render(
             'maps/index',
             {
+                layout: './layouts/map',
                 locations: locations,
                 user_location: user_location,
                 API_KEY: config.GOOGLE_MAPS_APIKEY
