@@ -29,6 +29,8 @@ exports.ROUTES = {
     'UPDATE_LOCATION_PATH': '/maps/update',   // updates current_user's location in DB
     'DELETE_LOCATION_PATH': '/maps/delete',   // deletes current_user's location from DB
 
+    'MSG_PATH': '/msg',
+
     'GOOGLE_OAUTH_PATH':    '/auth/google',
     'GOOGLE_OAUTH_CB_PATH': '/auth/google/callback',
     'GOOGLE_OAUTH_S_PATH':  '/auth/google/success',
