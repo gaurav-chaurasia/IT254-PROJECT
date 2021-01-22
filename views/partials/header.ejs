@@ -91,24 +91,36 @@
           class="dropdown-menu fade-up animate slideIn py-0"
           aria-labelledby="dropdownMenuButton"
         >
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-check" style="margin-right: 10px;" aria-hidden="true"></i>
+            Action
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-check" style="margin-right: 10px;" aria-hidden="true"></i>
+            Another action
+          </a>
           <div class="dropdown-divider"></div>
           <% if (current_user && (current_user.role == 'DOCTOR' ||
           current_user.role == 'ADMIN')) { %>
-          <a class="dropdown-item" href="<%= ROUTES.ADD_DISEASES_PATH %>"
-            >add diseases</a
-          >
-          <a class="dropdown-item" href="<%= ROUTES.ADD_MEDICINES_PATH %>"
-            >add medicine</a
-          >
+          <a class="dropdown-item" href="<%= ROUTES.ADD_DISEASES_PATH %>">
+            <i class="fa fa-pencil-square-o" style="margin-right: 10px;" aria-hidden="true"></i>
+            add diseases
+          </a>
+          <a class="dropdown-item" href="<%= ROUTES.ADD_MEDICINES_PATH %>">
+            <i class="fa fa-pencil-square-o" style="margin-right: 10px;" aria-hidden="true"></i>
+            add medicine
+          </a>
           <div class="dropdown-divider"></div>
           <% } %>
-          <a class="dropdown-item" href="<%= ROUTES.LOGOUT_PATH %>"
-            >Logout</a
-          >
+          <a class="dropdown-item" href="<%= ROUTES.LOGOUT_PATH %>">
+            <i class="fa fa-sign-out" style="margin-right: 10px;" aria-hidden="true"></i>
+            Logout
+          </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="<%= ROUTES.TESTS_PATH %>">tests</a>
+          <a class="dropdown-item" href="<%= ROUTES.TESTS_PATH %>">
+            <i class="fa fa-shield" style="margin-right: 10px;" aria-hidden="true"></i>
+            tests
+          </a>
         </div>
       </div>
       <% } else { %>
@@ -163,10 +175,14 @@
           class="dropdown-menu fade-up animate slideIn py-0"
           aria-labelledby="dropdownMenuButton"
         >
-          <a class="dropdown-item" href="<%= ROUTES.LOGIN_PATH%>">Login</a>
-          <a class="dropdown-item" href="<%= ROUTES.REGISTRATION_PATH%>"
-            >Register</a
-          >
+          <a class="dropdown-item" href="<%= ROUTES.LOGIN_PATH%>"> 
+            <i class="fa fa-sign-in" style="margin-right: 10px;" aria-hidden="true"></i>
+            Login
+          </a>
+          <a class="dropdown-item" href="<%= ROUTES.REGISTRATION_PATH%>">
+            <i class="fa fa-user-plus" style="margin-right: 10px;" aria-hidden="true"></i>
+            Register
+          </a>
         </div>
       </div>
       <% } %>

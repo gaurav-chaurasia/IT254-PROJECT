@@ -289,7 +289,7 @@ button {
 .home-section-title {
   /* transform: translateY(30px); */
   margin-top: 100px;
-  /* text-align: center; */
+  text-align: center;
 }
 .home-section-title-wrap hr {
   /* height: 10px; */
