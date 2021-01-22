@@ -22,6 +22,11 @@ router.get(
 );
 
 router.get(
+    ROUTES.RECENT_DISEASES_PATH,
+    diseaseController.getRecentDiseases,
+);
+
+router.get(
     ROUTES.ADD_DISEASES_PATH,
     auth.authenticateUser,
     auth.authorizeDoctor,

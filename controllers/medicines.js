@@ -62,8 +62,22 @@ const addMedicinesToMedicineCollection = async (req, res, next) => {
     }
 }
 
+const getRecentMedicines = async (req, res, next) => {
+  try {
+    const recentMedicines = await Medicine.find({}, { _id: 0 })
+                                          .sort({ updatedAt: -1 })
+                                          .limit(5);
+    res.status(200);
+    res.json(recentMedicines);
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 module.exports = {
     getAllMedicines,
     getAddMedicinesPage,
     addMedicinesToMedicineCollection,
+    getRecentMedicines,
 }

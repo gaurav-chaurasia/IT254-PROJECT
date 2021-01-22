@@ -9,6 +9,7 @@ exports.ROUTES = {
     'DISEASES_PATH':        '/diseases',        // get all diseases from DB
     'ADD_DISEASES_PATH':    '/diseases/add',    // add disease to DB
     'DELETE_DISEASES_PATH': '/diseases/delete', // delete all diseases
+    'RECENT_DISEASES_PATH': '/diseases/recent',
 
     'DISEASE_PATH':        '/diseases/:id',         // get specific disease
     'UPDATE_DISEASE_PATH': '/diseases/:id/update',  // update specific disease
@@ -17,6 +18,7 @@ exports.ROUTES = {
     'MEDICINES_PATH':        '/medicines',        // get all medicines from DB
     'ADD_MEDICINES_PATH':    '/medicines/add',    // add medicine to DB
     'DELETE_MEDICINES_PATH': '/medicines/delete', // delete all medicines
+    'RECENT_MEDICINE_PATH': '/medicines/recent',
 
     'MEDICINE_PATH':        '/medicines/:id',         // get specific medicine
     'UPDATE_MEDICINE_PATH': '/medicines/:id/update',  // update specific medicine

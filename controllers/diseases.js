@@ -51,8 +51,21 @@ const addDiseasesToDiseaseCollection = async (req, res, next) => {
     }
 };
 
+const getRecentDiseases = async (req, res, next) => {
+    try {
+        const recentDiseases = await Disease.find({}, { _id: 0 })
+                                        .sort({'updatedAt': -1})
+                                        .limit(5);
+        res.status(200);
+        res.json(recentDiseases);
+    } catch (err) {
+        next(err);
+    }
+};
+
 module.exports = {
     getAllDiseases,
     getAddDiseasesPage,
     addDiseasesToDiseaseCollection,
+    getRecentDiseases,
 }

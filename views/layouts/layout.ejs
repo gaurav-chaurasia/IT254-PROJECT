@@ -39,14 +39,17 @@
     <!-- local css & js files -->
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script src="/javascripts/app.js"></script>
   </head>
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/message') %>
     <div id="body">
-        <%- body %>
+      <%- body %>
     </div>
     <%- include('../partials/footer') %>
+
+    <!-- local scripts -->
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/async.js"></script>
   </body>
 </html>

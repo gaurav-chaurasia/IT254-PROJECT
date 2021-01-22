@@ -21,6 +21,11 @@ router.get(
 );
 
 router.get(
+    ROUTES.RECENT_MEDICINE_PATH,
+    medicineController.getRecentMedicines,
+);
+
+router.get(
     ROUTES.ADD_MEDICINES_PATH,
     auth.authenticateUser,
     auth.authorizeDoctor,

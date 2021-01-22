@@ -288,8 +288,8 @@ button {
 
 .home-section-title {
   /* transform: translateY(30px); */
-  margin: 50px auto;
-  text-align: center;
+  margin-top: 100px;
+  /* text-align: center; */
 }
 .home-section-title-wrap hr {
   /* height: 10px; */
@@ -297,6 +297,10 @@ button {
   background: -webkit-linear-gradient(to left, #1f3349, #172338);  
   background: linear-gradient(to left, #1f3349, #172338); 
   border: none;
+}
+#replace-disease, 
+#replace-medicine {
+  min-height: 200px;
 }
 
 .btn-link-2 {
