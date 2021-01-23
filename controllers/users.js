@@ -8,7 +8,7 @@ const passport = require('passport');
 // ----------------------------------------
 const config = require('../config/config')[process.env.NODE_ENV || 'development'];
 const { ROUTES } = require('../config/ROUTES');
-const User = require('../models/user');
+const User = require('../db/models/user');
 
 
 const getRegistrationPage = (req, res, next) => {

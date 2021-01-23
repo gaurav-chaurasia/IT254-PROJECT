@@ -9,7 +9,7 @@ const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 // ----------------------------------------
 const config     = require('../config/config')[process.env.NODE_ENV || 'development'];
 const { ROUTES } = require('../config/ROUTES');
-const User       = require('../models/user'); 
+const User       = require('../db/models/user'); 
 
 // ----------------------------------------
 // save user data as cookies in user's browser

@@ -58,9 +58,9 @@ router.get(
 	auth.authenticateUser,
 	(req, res, next) => {
 		req.flash(
-			'success', 
-			'You are Successfully authenticated!'
-		);
+      'success',
+      `Successfully authenticated using Google Accounts`,
+    );
 		res.redirect(ROUTES.ROOT_PATH);
 	}
 );

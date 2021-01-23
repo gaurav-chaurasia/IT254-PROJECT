@@ -32,19 +32,7 @@ const homeRouter     = require('./routes/home');
 // ----------------------------------------
 // connect database
 // ----------------------------------------
-mongoose
-  .connect(config.DATABASE_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-  })
-  .then((db) => console.log('Connected Successfully to Database!'));
-
-mongoose.connection.on('error', (err) => {
-  console.log('Database connection error:' + err);
-});
-
-
+require('./db/connect_db');
 
 // ----------------------------------------
 // view engine setup

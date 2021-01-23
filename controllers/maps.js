@@ -8,7 +8,7 @@
 // ----------------------------------------
 const config   = require('../config/config')[process.env.NODE_ENV || 'development'];
 const { ROUTES } = require('../config/ROUTES');
-const Location = require('../models/location');
+const Location = require('../db/models/location');
 
 const getMapsIndexPage = async (req, res, next) => {
     try {

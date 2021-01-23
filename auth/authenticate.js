@@ -7,7 +7,7 @@ const LocalStrategy = require('passport-local').Strategy;
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
-const User = require('../models/user');
+const User = require('../db/models/user');
 const { ROUTES } = require('../config/ROUTES');
 
 
