@@ -29,7 +29,11 @@ exports.ROUTES = {
     'UPDATE_LOCATION_PATH': '/maps/update',   // updates current_user's location in DB
     'DELETE_LOCATION_PATH': '/maps/delete',   // deletes current_user's location from DB
 
-    'MSG_PATH': '/msg',
+    'MSG_PATH': '/msg',                       // get the msg home
+    'MSG_CHATS_PATH': '/msg/chats',           // all users who have had chat with logged in user 
+    'MSG_CHAT_PATH': '/msg/chat/:user_id',    // get all msg between logged in user and user with user_id 
+    'MSG_ONLINE_PATH': '/msg/users/online',   // all online users
+    'MSG_USER_PATH': '/msg/users',            // users have used msg
 
     'GOOGLE_OAUTH_PATH':    '/auth/google',
     'GOOGLE_OAUTH_CB_PATH': '/auth/google/callback',
