@@ -13,6 +13,7 @@ const FileStore    = require('session-file-store')(session);
 const passport     = require('passport');
 const flash        = require('connect-flash');
 const layout       = require('express-ejs-layouts');
+const cors         = require('cors');
 require('dotenv').config();
 
 // ----------------------------------------
@@ -47,7 +48,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 
 // ----------------------------------------
 // passport configuration

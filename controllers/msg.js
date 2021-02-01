@@ -10,7 +10,10 @@ const MSG        = require('../db/models/msg');
 const { ROUTES } = require('../config/ROUTES');
 
 
-const main = (req, res, next) => {};
+const onConnection = (socket) => {
+  socket.emit('user', socket.id);
+  console.log('server', socket.id);
+};
 
 const getMessengerPage = (req, res) => {
   res.render('msg/index', {
@@ -31,5 +34,5 @@ const getAllKnownUsers = async (req, res, next) => {
 module.exports = {
   getMessengerPage,
   getAllKnownUsers,
-  main,
+  onConnection,
 };
