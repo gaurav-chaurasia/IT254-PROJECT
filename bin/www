@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('dlhd:server');
 var http = require('http');
+const { Socket } = require('dgram');
 
 /**
  * Get port from environment and store in Express.
@@ -20,6 +21,8 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io     = require('socket.io')(server);
+require('../service/socket/index')(io);
 
 /**
  * Listen on provided port, on all network interfaces.
