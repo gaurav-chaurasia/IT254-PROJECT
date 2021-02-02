@@ -4,7 +4,6 @@
 const createError  = require('http-errors');
 const express      = require('express');
 const app          = express();
-const mongoose     = require('mongoose');
 const path         = require('path');
 const cookieParser = require('cookie-parser');
 const logger       = require('morgan');
@@ -13,6 +12,7 @@ const FileStore    = require('session-file-store')(session);
 const passport     = require('passport');
 const flash        = require('connect-flash');
 const layout       = require('express-ejs-layouts');
+const cors         = require('cors');
 require('dotenv').config();
 
 // ----------------------------------------
@@ -46,6 +46,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.user(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
