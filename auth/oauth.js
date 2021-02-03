@@ -32,7 +32,7 @@ passport.deserializeUser(
 passport.use(new GoogleStrategy({
         clientID:     config.GOOGLE_OAUTH2_CLIENT_ID,
         clientSecret: config.GOOGLE_OAUTH2_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/callback",
+        callbackURL:  config.GOOGLE_CALLBACK_URL,
         passReqToCallback   : true
     },
     async (request, accessToken, refreshToken, profile, done) => {
