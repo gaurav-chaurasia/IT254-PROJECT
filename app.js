@@ -8,7 +8,7 @@ const path         = require('path');
 const cookieParser = require('cookie-parser');
 const logger       = require('morgan');
 const session      = require('express-session');
-const FileStore    = require('session-file-store')(session);
+const MongoStore   = require('connect-mongo')(session);
 const passport     = require('passport');
 const flash        = require('connect-flash');
 const layout       = require('express-ejs-layouts');
@@ -53,14 +53,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ----------------------------------------
 // passport configuration
 // ----------------------------------------
-app.use(session({
-	name: config.session,
-	secret: config.secret,
-	saveUninitialized: false,
-	resave: false,
-	store: new FileStore()
-}));
-
+app.use(
+  session({
+    key: 'dlhd',
+    secret: config.secret,
+    store: new MongoStore({ url: config.DATABASE_URI })
+  }),
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -108,7 +107,7 @@ app.use((err, req, res, next) => {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  // res.status = err.status || 500;
+  res.status = err.status || 500;
   res.render('error');
 });
 
