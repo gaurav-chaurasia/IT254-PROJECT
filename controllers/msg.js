@@ -18,18 +18,8 @@ const getMessengerPage = (req, res) => {
   });
 };
 
-// user with whom logged users has had chat
-const getAllKnownUsers = async (req, res, next) => {
-  try {
-    const users = MSG.find({});
-  } catch (err) {
-
-  }
-};
-
 
 module.exports = {
   getMessengerPage,
-  getAllKnownUsers,
   main,
 };
