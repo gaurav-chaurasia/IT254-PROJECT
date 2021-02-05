@@ -54,6 +54,36 @@ const deleteSocketConnection = async (id) => {
   }
 };
 
+const insertMSG = async (sender_id, reciver_id, msg) => {
+  try {
+    const newMSG = MSG.create({
+      sender_id: sender_id,
+      receiver_id: reciver_id,
+      msg: msg
+    });
+  } catch (err) {
+    
+  }
+}
+
+const getSocketID = async (user_id) => {
+  try {
+    const socket_id = await Connection.findOne({ user_id: user_id}, { _id: 0, connection_id: 1 });
+    // return JSON.stringify({
+    //   success: true,
+    //   status: 200,
+    //   id: socket_id.connection_id,
+    // });
+    return socket_id;
+  } catch (err) {
+    return JSON.stringify({
+      success: false,
+      status: 500,
+      err: new Error("Opps somthing went wrong!!!"),
+    });
+  }
+}
+
 // io contains all the info of all connection
 // socket has all info for perticular connection
 const socketIO = (io) => {
@@ -91,6 +121,28 @@ const socketIO = (io) => {
      * all connected users
      * */
     io.emit('user_connect', user);
+
+
+    /**
+     * @listening form Client
+     * recives new MSG and emit to user
+    */
+    socket.on('SENT_MSG', async (to_user_id, msg) => {
+      try {
+        const socket_id = await getSocketID(to_user_id);
+        const newMSG = await insertMSG(socket.request.user._id, to_user_id, msg);
+        // user online
+        console.log('from ', to_user_id);
+        console.log('to ',socket_id.connection_id);
+
+        // user is online
+        // console.log(io.rooms.has(socket_id.connection_id));
+        io.to(socket_id.connection_id).emit('RECIVED_MSG', msg);
+      } catch (err) {
+        throw new err;
+      }
+    });
+
 
 
     /**

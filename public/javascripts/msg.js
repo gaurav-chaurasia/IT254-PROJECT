@@ -1,24 +1,44 @@
 const online_user_container = $('.online-user-container');
 
+const MSG_LOADER = `
+    <div class="d-flex justify-content-center">
+      <div class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>`;
+const SENT_MSG = (txt) => {
+  return `
+    <div class="msg-sent">
+      ${txt}
+    </div>`;
+};
+const RECIVED_MSG = (txt) => {
+  return `
+    <div class="msg-recived">
+      ${txt}
+    </div>`;
+};
+
 const USER_ELEMENT = (user) => {
   return `
-      <div class="users">
-          <img 
-              class="user-img img-fluid" 
-              src="${user.profile_pic_url}" 
-              alt="profile"
-          >
-  
-          <div class="user-details" id="${user._id}">
-              <div class="user-name">
-                  ${user.username}
-              </div>
-              <div class="user-msg-last">
-                  this is last msg..
-              </div>
-              <span class="online-dot"></span>
-          </div>
-      </div>`};
+    <div class="users">
+      <img 
+        class="user-img img-fluid" 
+        src="${user.profile_pic_url}" 
+        alt="profile"
+      >
+
+      <div class="user-details" id="${user._id}">
+        <div class="user-name">
+          ${user.username}
+        </div>
+        <div class="user-msg-last">
+          this is last msg..
+        </div>
+        <span class="online-dot"></span>
+      </div>
+    </div>`;
+};
 var socket;
 
 // client-side
@@ -30,11 +50,39 @@ if (window.location.pathname === '/msg') {
    * when new user joins
    * @gets {data}
    *  */
-  socket.on('user_connect', (user) => {
-    // console.log(online_user_container[0].innerHTML);
+  socket.on('user_connect', async (user) => {
+    // update view
     online_user_container[0].innerHTML += USER_ELEMENT(user);
-    console.log(online_user_container.innerHTML);
   });
+
+
+  /**
+   * @sending to server
+   * new messages
+   * need to send user_id whom you wanna send msg
+   */
+  $('.msg-send-botton').click(() => {
+    const MSG = $('.msg-input').val();
+    const TO_USER = middleHeader[1].id;
+
+    socket.emit('SENT_MSG', TO_USER, MSG);
+
+    middleMain.innerHTML += RECIVED_MSG(MSG);
+  });
+
+
+
+  /**
+   * @listening from server
+   * new messages
+   * need to send user_id whom you wanna send msg
+   */
+  socket.on('RECIVED_MSG', (MSG) => {
+    console.log(MSG);
+    middleMain.innerHTML += SENT_MSG(MSG);
+  });
+
+
 
   /**
    * @listing from server
