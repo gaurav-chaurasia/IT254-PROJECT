@@ -17,4 +17,10 @@ router.get(
     msgController.getMessengerPage,
 );
 
+router.get(
+    ROUTES.MSG_CHAT_PATH,
+    auth.authenticateUser,
+    msgController.getMessages,
+);
+
 module.exports = router;

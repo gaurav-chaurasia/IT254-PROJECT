@@ -1,34 +1,32 @@
+<div class="users active">
+    <img 
+        class="user-img img-fluid" 
+        src="<%= current_user.profile_pic_url %>" 
+        alt="profile"
+    >
+
+    <div class="user-details" id="<%= current_user._id %>">
+        <div class="user-name">
+            <strong><em>Profile </em></strong> <br> 
+            <%= current_user.username %>
+        </div>
+        <span class="online-dot"></span>
+    </div>
+</div>
 <div class="msg-search">
     <input type="text" class="msg-search-input" placeholder="search with name">
 </div>
 <div class="old-msg-container">
-    <div class="users active">
+    <div class="users current_user" style="display: none;">
         <img 
             class="user-img img-fluid" 
             src="/images/i8q1U.jpg" 
             alt="profile"
         >
 
-        <div class="user-details">
+        <div class="user-details" id="<%= current_user._id %>">
             <div class="user-name">
-                Linux
-            </div>
-            <div class="user-msg-last">
-                this is last msg..
-            </div>
-        </div>
-    </div>
-    
-    <div class="users">
-        <img 
-            class="user-img img-fluid" 
-            src="/images/github-logo.png" 
-            alt="profile"
-        >
-
-        <div class="user-details">
-            <div class="user-name">
-                github
+                <%= current_user.username %>
             </div>
             <div class="user-msg-last">
                 this is last msg..

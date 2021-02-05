@@ -115,7 +115,7 @@
   align-items: center;
 }
 
-.middle-header {
+.middle-header-container {
   display: flex;
   align-items: center;
   padding: 10px 30px;
@@ -203,10 +203,16 @@
 
 
 .middle-msg-container {
+  position: relative;
   overflow: auto;
   height: 72%;
 }
-
+.spinner {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .msg-sent {
   max-width: 350px;
   padding: 10px 0;
