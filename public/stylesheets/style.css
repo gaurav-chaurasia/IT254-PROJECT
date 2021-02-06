@@ -71,6 +71,29 @@ footer {
   top: 0px;
   z-index: 999;
 }
+
+.msg-botton-container {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 0 rgba(0,0,0,0.25);
+}
+.msg-botton-icon:hover {
+  color: #36475a;
+  transition: 0.3s;
+}
+.msg-botton-icon {
+  font-size: 30px;
+  color: #1f3349;
+}
+
 .remove_field {
   position: relative;
   color: tomato;
