@@ -25,16 +25,19 @@ const getMessengerPage = async (req, res, next) => {
 const getMessages = async (req, res, next) => {
   try {
     const U1_ID = req.user._id;
-    const U2_ID = req.params.u_id; 
-    console.log(U1_ID);   
-    const msgs = await MSG.find({});
-    //   $or: [
-    //     { $and: [{ sender_id: U1_ID }, { reciver_id: U2_ID }] },
-    //     { $and: [{ sender_id: U2_ID }, { reciver_id: U1_ID }] },
-    //   ],
-    // }).sort({ updatedAt: -1 });
+    const U2_ID = req.params.uid; 
 
-    console.log(msgs);
+    const msgs = await MSG.find({
+      $or: [
+        {
+          $and: [{ sender_id: U1_ID }, { receiver_id: U2_ID }],
+        },
+        {
+          $and: [{ sender_id: U2_ID }, { receiver_id: U1_ID }],
+        },
+      ],
+    }).sort({ updatedAt: 1 });
+
     res.status(200);
     res.json(msgs);
   } catch (err) {

@@ -126,7 +126,7 @@ const socketIO = (io) => {
     // when new user connects
     // saving new user to db
     response = await insertSocketConnection(current_user, id);
-    console.log('SERVER-SIDE: user connected', id, response);
+    console.log('SERVER-SIDE: user connected', id, current_user.username, response);
     /**
      * @sending to Client
      * and send info for new connection to other users
@@ -168,7 +168,7 @@ const socketIO = (io) => {
     socket.on('disconnect', async () => {
       // updating connection data
       response = await deleteSocketConnection(id);
-      console.log('SERVER-SIDE: user disconnected', id, response);
+      console.log('SERVER-SIDE: user disconnected', id, current_user.username, response);
       /**
        * @sending to Client
        * user with @id = user._id is disconnected

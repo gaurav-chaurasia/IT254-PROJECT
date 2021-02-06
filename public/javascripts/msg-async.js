@@ -44,55 +44,26 @@ async function loadMiddleClient() {
     
     // add spinner to middle main and fetch msg;
     middleMain.innerHTML = SPINNER;
-    // get_data(`/msg/chat?u_id=${user_id}`)
-    //   .then((response) => {
-    //     let el = '';
-    //     console.log(response);
-    //     if (response.length == 0) {
-    //         middleMain.innerHTML = INFO('No Messages available');
-    //     } else {
-    //         for (let i = 0; i < response.length; i++) {
-    //             let item = response[i];
-    //             if (item.sender_id == current_user_id) {
-    //                 el += `<div class="msg-sent">${item.msg}</div>`;
-    //             } else {
-    //                 el += `<div class="msg-recived">${item.msg}</div>`;
-    //             }
-    //         }
-    //         middleMain.innerHTML = `<div>${el}</div>`;
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     middleMain.innerHTML = INFO('Previous data could not be loaded!!!');
-    //   });
-    try {
-        let url = new URL('http://localhost:3000/msg/chat');
-        let params = { u_id: user_id };
-        url.search = new URLSearchParams(params).toString();
-        response = await fetch(url);
-
+    get_data(`/msg/chat/${user_id}`)
+      .then((response) => {
         let el = '';
-        // console.log(response.json());
-        for (let i = 0; response.length; i++) {
-          console.log('h');
-        }
-        // console.log(response);
-
+        console.log(response);
         if (response.length == 0) {
             middleMain.innerHTML = INFO('No Messages available');
         } else {
             for (let i = 0; i < response.length; i++) {
                 let item = response[i];
-                if(item.sender_id == current_user_id) {
-                    el += `<div class="msg-sent">${item.msg}</div>`;
-                } else {
+                if (item.sender_id == current_user_id) {
                     el += `<div class="msg-recived">${item.msg}</div>`;
+                } else {
+                    el += `<div class="msg-sent">${item.msg}</div>`;
                 }
             }
             middleMain.innerHTML = `<div>${el}</div>`;
         }
-    } catch (err) {
-        middleMain.innerHTML = INFO('data could not be loaded!!!');
-    }
+      })
+      .catch((err) => {
+        middleMain.innerHTML = INFO('Previous data could not be loaded!!!');
+      });
 }
 $(document).on('click', '.users', loadMiddleClient);

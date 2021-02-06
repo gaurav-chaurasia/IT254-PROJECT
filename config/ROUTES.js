@@ -31,7 +31,7 @@ exports.ROUTES = {
 
     'MSG_PATH': '/msg',                       // get the msg home
     'MSG_CHATS_PATH': '/msg/chats',           // all users who have had chat with logged in user 
-    'MSG_CHAT_PATH': '/msg/chat/:u_id',    // get all msg between logged in user and user with user_id 
+    'MSG_CHAT_PATH': '/msg/chat/:uid',    // get all msg between logged in user and user with user_id 
     'MSG_ONLINE_PATH': '/msg/users/online',   // all online users
     'MSG_USER_PATH': '/msg/users',            // users have used msg
 
