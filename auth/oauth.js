@@ -9,7 +9,7 @@ const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 // ----------------------------------------
 const config     = require('../config/config')[process.env.NODE_ENV || 'development'];
 const { ROUTES } = require('../config/ROUTES');
-const User       = require('../models/user'); 
+const User       = require('../db/models/user'); 
 
 // ----------------------------------------
 // save user data as cookies in user's browser
@@ -32,7 +32,7 @@ passport.deserializeUser(
 passport.use(new GoogleStrategy({
         clientID:     config.GOOGLE_OAUTH2_CLIENT_ID,
         clientSecret: config.GOOGLE_OAUTH2_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/google/callback",
+        callbackURL:  config.GOOGLE_CALLBACK_URL,
         passReqToCallback   : true
     },
     async (request, accessToken, refreshToken, profile, done) => {
@@ -45,12 +45,12 @@ passport.use(new GoogleStrategy({
                 return done(null, user);
             } else {
                 const newUser = await User.create({
-                    username:      `${profile.given_name}.${profile.id}`,
-                    firstname:     profile.given_name, 
-                    lastname:      profile.family_name,
-                    email:         profile.email,
-                    profilePicUrl: profile.picture,
-                    verified:      profile.verified,
+                  username: `${profile.given_name}.${profile.id}`,
+                  firstname: profile.given_name,
+                  lastname: profile.family_name,
+                  email: profile.email,
+                  profile_pic_url: profile.picture,
+                  verified: profile.verified,
                 });
                 // debug oauth
                 // console.log('user created');

@@ -7,8 +7,8 @@
 // import local node modules
 // ----------------------------------------
 const { ROUTES } = require('../config/ROUTES');
-const Medicine = require('../models/medicine');
-const Disease = require('../models/disease');
+const Medicine = require('../db/models/medicine');
+const Disease = require('../db/models/disease');
 
 
 const getAddMedicinesPage = async (req, res) => {

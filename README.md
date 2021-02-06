@@ -13,6 +13,7 @@
   - [doctor's login](docs/doctor.md)
   - [medicine & disease listing](docs/med_dis.md)
   - [contagious disease tracker](docs/tracker.md)
+  - [MSG livechat with doctors](docs/msg.md)
 
 
 
@@ -30,17 +31,16 @@
 
 - [x] Users can see other users nearby with symptoms of any contagious disease.
 - [x] Users can perform CRUD on geospatial data. (create, read, delete, update)
-- [ ] Live chat with doctor
-    - [ ] use web socket 
+- [x] Live chat with doctor
+    - [x] use web socket 
     - [ ] doctor can prescrib medicine
     - [ ] perscribtion sent to mail
     - [ ] user gets notification when doctors replies 
  
-- [ ] Capability to pay and buy prescribed medicines
+- [x] Capability to pay and buy prescribed medicines
     - [ ] pay using paypal
     - [ ] pay using stripe
 
-- [ ] 
 
 > some imp links
 

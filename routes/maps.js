@@ -10,8 +10,8 @@ const router = express.Router();
 const auth = require('../auth/authenticate');
 const { ROUTES } = require('../config/ROUTES');
 const mapController = require('../controllers/maps');
-const { find } = require('../models/location');
-const Location = require('../models/location');
+const { find } = require('../db/models/location');
+const Location = require('../db/models/location');
 
 router.get(
 	ROUTES.MAPS_PATH,

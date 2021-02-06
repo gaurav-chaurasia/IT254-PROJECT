@@ -3,18 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DLHD</title>
+    <title>MSG</title>
 
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/5506f7f00f.js" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap css & js files -->
+    <!-- Bootstrap css file -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
+    <!-- local css & js files -->
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/stylesheets/msg.css" />
+  </head>
+  <body>
+
+    <div id="body">
+      <%- body %>
+    </div>
+
+    <!-- bootstrap js file -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -30,34 +42,11 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Gouth -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta
-      name="google-signin-client_id"
-      content="940131921642-bme4ovgus42f5e78c8tf77a3va023u00.apps.googleusercontent.com"
-    />
-
-    <!-- local css & js files -->
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <%- include('../partials/header') %>
-    <%- include('../partials/message') %>
-    <div id="body">
-      <%- body %>      
-    </div>
-
-    <div class="msg-botton-container">
-      <a href="/msg">
-        <i class="fa fa-comments msg-botton-icon" aria-hidden="true"></i>
-      </a>
-    </div>
-    <%- include('../partials/footer') %>
-
+    <!-- socket client -->
+    <script src="https://unpkg.com/socket.io-client@3.0.1/dist/socket.io.min.js"></script>
     <!-- local scripts -->
-    <script src="/javascripts/app.js"></script>
-    <script src="/javascripts/async.js"></script>
+    <script src="/javascripts/msg-async.js"></script>
+    <script src="/javascripts/msg.js"></script>
+
   </body>
 </html>
