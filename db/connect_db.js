@@ -12,14 +12,25 @@ const config = require('../config/config')[process.env.NODE_ENV || 'development'
 // ----------------------------------------
 // connect database
 // ----------------------------------------
-mongoose
-  .connect(config.DATABASE_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
-  .then((db) => console.log('Connected Successfully to Database!'));
+class Database {
+  constructor() {
+    this._connect();
+  }
 
-mongoose.connection.on('error', (err) => {
-  console.log('Database connection error:' + err);
-});
+  _connect() {
+    mongoose
+      .connect(config.DATABASE_URI, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+      })
+      .then(() => {
+        console.log('Database connection successful');
+      })
+      .catch((err) => {
+        console.error('Database connection error:', err);
+      });
+  }
+}
+
+module.exports = new Database();

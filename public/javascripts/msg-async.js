@@ -2,7 +2,7 @@
 const middleHeader = $('.middle-header-container').children();
 const middleMain   = $('.middle-msg-container').children()[0];
 const middleFooter = $('.middle-bottom-container');
-const current_user_id = $('.current_user').children()[1].id;
+const current_user_id = $('.current_user').attr('id');
 
 let response;
 const SPINNER = `

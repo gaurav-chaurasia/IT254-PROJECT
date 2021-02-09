@@ -30,7 +30,7 @@ const USER_ELEMENT = (user) => {
 
       <div class="user-details" id="${user._id}">
         <div class="user-name">
-          ${user.username}
+          ${user.firstname} ${user.lastname}
         </div>
         <div class="user-msg-last">
           this is last msg..

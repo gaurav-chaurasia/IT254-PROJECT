@@ -4,12 +4,12 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-require('../auth/oauth');
+require('../services/auth/oauth');
 
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
-const auth = require('../auth/authenticate');
+const auth = require('../services/auth/authenticate');
 const { ROUTES } = require('../config/ROUTES');
 const userController = require('../controllers/users');
 

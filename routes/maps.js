@@ -7,7 +7,7 @@ const router = express.Router();
 // ----------------------------------------
 // import local node modules
 // ----------------------------------------
-const auth = require('../auth/authenticate');
+const auth = require('../services/auth/authenticate');
 const { ROUTES } = require('../config/ROUTES');
 const mapController = require('../controllers/maps');
 const { find } = require('../db/models/location');
