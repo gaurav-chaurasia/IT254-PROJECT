@@ -56,7 +56,7 @@ const deleteSocketConnection = async (id) => {
  */
 const insertMSG = async (sender_id, reciver_id, msg) => {
   try {
-    const newMSG = MSG.create({
+    const newMSG = await MSG.create({
       sender_id: sender_id,
       receiver_id: reciver_id,
       msg: msg
@@ -64,6 +64,7 @@ const insertMSG = async (sender_id, reciver_id, msg) => {
 
     return {
       success: true,
+      MSG: newMSG,
     };
   } catch (err) {
     return {
@@ -133,7 +134,7 @@ const socketIO = (io) => {
      * @listening form Client
      * recives new MSG and emit to user
     */
-    socket.on('SENT_MSG', async (to_user_id, msg, MSG_ACK) => {
+    socket.on('SENT_MSG', async (to_user_id, to_username, msg, MSG_ACK) => {
       try {
         const socket_id = await getSocketID(to_user_id);
         const newMSG = await insertMSG(current_user._id, to_user_id, msg);
@@ -142,11 +143,15 @@ const socketIO = (io) => {
         // console.log('to ', socket_id.connection_id);
 
         // below callback gives acknowledgement of message recived and stored
-        MSG_ACK(newMSG.success);
-
+        MSG_ACK(newMSG.success, newMSG.MSG);
+        // console.log(newMSG.MSG);
         // user is online
         // console.log(io.rooms.has(socket_id.connection_id));
-        io.to(socket_id.connection_id).emit('DELIVER_MSG', msg);
+        io.to(socket_id.connection_id).emit(
+          'DELIVER_MSG',
+          newMSG.MSG,
+          `${current_user.firstname} ${current_user.lastname}`,
+        );
       } catch (err) {
         throw new err();
       }

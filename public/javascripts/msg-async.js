@@ -30,11 +30,29 @@ async function load_middle_client() {
                 {
                     if (response[i].sender_id == current_user_id) 
                     {
-                        element += `<div class="msg-recived">${response[i].msg}</div>`;
+                        element += `
+                        <div class="msg-recived">
+                            <div class="msg-user-details">
+                                You
+                            </div>
+                            ${response[i].msg}
+                            <div class="msg-msg-details">
+                                ${response[i].createdAt}
+                            </div>  
+                        </div>`;
                     } 
                     else 
                     {
-                        element += `<div class="msg-sent">${response[i].msg}</div>`;
+                        element += `
+                        <div class="msg-sent">
+                            <div class="msg-user-details">
+                                ${username}
+                            </div>
+                            ${response[i].msg}
+                            <div class="msg-msg-details">
+                                ${response[i].createdAt}
+                            </div> 
+                        </div>`;
                     }
                 }
                 middleMain.innerHTML = `<div>${element}</div>`;

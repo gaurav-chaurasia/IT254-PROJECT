@@ -33,17 +33,31 @@ const MSG_LOADER = `
       </div>
     </div>`;
 
-const SENT_MSG = (txt) => {
+const SENT_MSG = (txt, time, username) => {
   return `
     <div class="msg-sent">
+      <div class="msg-user-details">
+        ${username}
+      </div>
+
       ${txt}
+
+      <div class="msg-msg-details">
+          ${time}
+      </div>  
     </div>`;
 };
 
-const RECIVED_MSG = (txt) => {
+const RECIVED_MSG = (txt, time = 'January 1, 0001 00:00:00') => {
   return `
     <div class="msg-recived">
+      <div class="msg-user-details">
+        You
+      </div>
       ${txt}
+      <div class="msg-msg-details">
+        ${time}
+      </div>
     </div>`;
 };
 

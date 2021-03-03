@@ -23,12 +23,15 @@ if (window.location.pathname === '/msg') {
   $('.msg-send-botton').click(() => {
     const MSG = $('.msg-input').val();
     const TO_USER = middleHeader[1].id;
+    const TO_USERNAME = middleHeader[1].innerHTML;
 
     middleMain.innerHTML += RECIVED_MSG(MSG_LOADER);
 
-    socket.emit('SENT_MSG', TO_USER, MSG, (success) => {
+    socket.emit('SENT_MSG', TO_USER, TO_USERNAME, MSG, (success, newMSGObj) => {
       if (success) {
-        middleMain.lastChild.innerHTML = MSG;
+        console.log(newMSGObj);
+        middleMain.lastChild.remove();
+        middleMain.innerHTML += RECIVED_MSG(MSG, newMSGObj.createdAt);
       } else {
         middleMain.lastChild.remove();
         middleMain.innerHTML += INFO('message could not be sent try again!!!');
@@ -43,8 +46,9 @@ if (window.location.pathname === '/msg') {
    * new messages
    * need to send user_id whom you wanna send msg
    */
-  socket.on('DELIVER_MSG', (MSG) => {
-    middleMain.innerHTML += SENT_MSG(MSG);
+  socket.on('DELIVER_MSG', (MSG, username) => {
+    console.log(MSG);
+    middleMain.innerHTML += SENT_MSG(MSG.msg, MSG.createdAt, username);
   });
 
 
