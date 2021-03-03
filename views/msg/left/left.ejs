@@ -5,10 +5,11 @@
         alt="profile"
     >
 
-    <div class="user-details" id="<%= current_user._id %>"style="margin: 0 auto;">
+    <div class="user-details current_user" id="<%= current_user._id %>"style="margin: 0 auto;">
         <div class="user-name">
-            <strong><%= current_user.username %></strong>
+            <strong><%= current_user.firstname %> <%= current_user.lastname %></strong>
             <strong><%= current_user.email %></strong>
+            <strong><%= current_user.username %></strong>
         </div>
     </div>
 </div>
@@ -17,34 +18,18 @@
     <input type="text" class="msg-search-input" placeholder="search with name">
 </div>
 
+
 <div class="old-msg-container">
-    <div class="users current_user" style="display: none;">
-        <img 
-            class="user-img img-fluid" 
-            src="/images/i8q1U.jpg" 
-            alt="profile"
-        >
-
-        <div class="user-details" id="<%= current_user._id %>">
-            <div class="user-name">
-                <%= current_user.username %>
-            </div>
-            <div class="user-msg-last">
-                this is last msg..
-            </div>
-        </div>
-    </div>
-
     <div class="users">
         <img 
             class="user-img img-fluid" 
-            src="/images/pp.jfif" 
+            src="/images/1.jpg" 
             alt="profile"
         >
 
         <div class="user-details" id="1111">
             <div class="user-name">
-                Gaurav Chaurasia
+                Dummy User
             </div>
             <div class="user-msg-last">
                 this is last msg..

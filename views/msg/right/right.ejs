@@ -9,7 +9,7 @@
     
             <div class="user-details" id="<%= value.user_id._id %>">
                 <div class="user-name">
-                    <%= value.user_id.username %>
+                    <%= value.user_id.firstname %> <%= value.user_id.lastname %>
                 </div>
                 <div class="user-msg-last">
                     this is last msg..
@@ -18,10 +18,9 @@
             </div>
         </div>
     <% }); %>
-
-    <!-- <div id="NOT-AVAILABLE-DOCTOR">
-        <span>
-            No doctor available online right now
-        </span> 
-    </div> -->
 </div>
+<!-- <div id="NOT-AVAILABLE-DOCTOR">
+    <span>
+        No doctor available online right now
+    </span> 
+</div> -->

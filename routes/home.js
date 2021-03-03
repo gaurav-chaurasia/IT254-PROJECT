@@ -11,7 +11,6 @@ const router = express.Router();
  * @param { auth } @containes authentication and autherization functions
  * @param { ROUTES } @has all routes for application
  */
-const auth = require('../auth/authenticate');
 const { ROUTES } = require('../config/ROUTES');
 const homeController = require('../controllers/home');
 

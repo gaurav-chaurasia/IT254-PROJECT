@@ -1,41 +1,9 @@
-// const users = document.querySelectorAll('.users');
-const middleHeader = $('.middle-header-container').children();
-const middleMain   = $('.middle-msg-container').children()[0];
-const middleFooter = $('.middle-bottom-container');
-const current_user_id = $('.current_user').children()[1].id;
+let response, element = '';
 
-let response;
-const SPINNER = `
-        <div class="spinner">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border text-success" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-        </div>`;
-const INFO = (txt) => {   
-    return `<div class="spinner">
-                <div class="d-flex justify-content-center">
-                    <div class="alert alert-dark" role="alert">
-                        ${txt} <a href="/" class="alert-link"> HOME</a>
-                    </div>    
-                </div>
-            </div>`;}
-
-const get_data = async (url = '') => {
-  try {
-    response = await fetch(url);
-    return response.json();
-  } catch (err) {
-    return err;
-  }
-};
-
-
-async function loadMiddleClient() {
-  const user_id  = this.children[1].id;
-  const user_img = this.children[0].src;
-  const username = this.children[1].children[0].innerText;
+async function load_middle_client() {
+    const user_id  = this.children[1].id;
+    const user_img = this.children[0].src;
+    const username = this.children[1].children[0].innerText;
 
     // update name in middle header
     middleHeader[1].id = user_id;
@@ -44,26 +12,54 @@ async function loadMiddleClient() {
     
     // add spinner to middle main and fetch msg;
     middleMain.innerHTML = SPINNER;
-    get_data(`/msg/chat/${user_id}`)
-      .then((response) => {
-        let el = '';
-        console.log(response);
-        if (response.length == 0) {
-            middleMain.innerHTML = INFO('No Messages available');
-        } else {
-            for (let i = 0; i < response.length; i++) {
-                let item = response[i];
-                if (item.sender_id == current_user_id) {
-                    el += `<div class="msg-recived">${item.msg}</div>`;
-                } else {
-                    el += `<div class="msg-sent">${item.msg}</div>`;
+    
+    fetch(`/msg/chat/${user_id}`)
+        .then(response => response.json())
+        // getting data by making async call to /msg/chat/uid
+        // then parsing that data to json()
+        .then((response) => {
+            // console.log(response);
+            // successfully recived json responses 
+            if (response.length == 0) 
+            {
+                middleMain.innerHTML = INFO('No Messages available');
+            } 
+            else 
+            {
+                for (let i = 0; i < response.length; i++) 
+                {
+                    if (response[i].sender_id == current_user_id) 
+                    {
+                        element += `
+                        <div class="msg-recived">
+                            <div class="msg-user-details">
+                                You
+                            </div>
+                            ${response[i].msg}
+                            <div class="msg-msg-details">
+                                ${response[i].createdAt}
+                            </div>  
+                        </div>`;
+                    } 
+                    else 
+                    {
+                        element += `
+                        <div class="msg-sent">
+                            <div class="msg-user-details">
+                                ${username}
+                            </div>
+                            ${response[i].msg}
+                            <div class="msg-msg-details">
+                                ${response[i].createdAt}
+                            </div> 
+                        </div>`;
+                    }
                 }
+                middleMain.innerHTML = `<div>${element}</div>`;
             }
-            middleMain.innerHTML = `<div>${el}</div>`;
-        }
-      })
-      .catch((err) => {
-        middleMain.innerHTML = INFO('Previous data could not be loaded!!!');
-      });
+        })
+        .catch((err) => {
+            middleMain.innerHTML = INFO('Previous data could not be loaded!!!');
+        });
 }
-$(document).on('click', '.users', loadMiddleClient);
+$(document).on('click', '.users', load_middle_client);
