@@ -23,12 +23,10 @@ const insertSocketConnection = async (user, id) => {
 
     return {
       success: true,
-      status: 200,
     };
   } catch (err) {
     return {
       success: false,
-      status: 500,
       err: new Error("Connection couldn't be created!!!"),
     };
   }
@@ -43,12 +41,10 @@ const deleteSocketConnection = async (id) => {
     const connection = await Connection.deleteOne({ connection_id: id });
     return {
       success: true,
-      status: 200,
     };
   } catch (err) {
     return {
       success: false,
-      status: 500,
       err: new Error("Connection couldn't be removed!!!"),
     };
   }
@@ -68,12 +64,10 @@ const insertMSG = async (sender_id, reciver_id, msg) => {
 
     return {
       success: true,
-      status: 200,
     };
   } catch (err) {
     return {
       success: false,
-      status: 500,
       err: new Error("Connection couldn't be removed!!!"),
     };
   }
@@ -91,7 +85,6 @@ const getSocketID = async (user_id) => {
   } catch (err) {
     return {
       success: false,
-      status: 500,
       err: new Error("Opps somthing went wrong!!!"),
     };
   }
