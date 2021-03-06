@@ -37,7 +37,7 @@ async function load_middle_client() {
                             </div>
                             ${response[i].msg}
                             <div class="msg-msg-details">
-                                ${response[i].createdAt}
+                                ${formate_datetime(response[i].createdAt)}
                             </div>  
                         </div>`;
                     } 
@@ -50,7 +50,7 @@ async function load_middle_client() {
                             </div>
                             ${response[i].msg}
                             <div class="msg-msg-details">
-                                ${response[i].createdAt}
+                                ${formate_datetime(response[i].createdAt)}
                             </div> 
                         </div>`;
                     }

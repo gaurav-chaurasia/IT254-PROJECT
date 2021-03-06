@@ -81,3 +81,19 @@ const USER_ELEMENT = (user) => {
       </div>
     </div>`;
 };
+
+
+const formate_datetime = (datetime) => {
+  const YEARS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  var date = datetime.split('T')[0];
+  var time = datetime.split('T')[1];
+  var years  = date.split('-')[0];
+  var months = Number(date.split('-')[1]);
+  var day    = date.split('-')[2];
+  var hours   = time.split(':')[0];
+  var minutes = time.split(':')[1];
+  var seconds = time.split(':')[2];
+
+  return `${day} ${YEARS[months]},  ${hours}:${minutes}`;
+};
