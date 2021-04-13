@@ -63,7 +63,7 @@ const RECIVED_MSG = (txt, time = 'January 1, 0001 00:00:00') => {
 
 const USER_ELEMENT = (user) => {
   return `
-    <div class="users">
+    <div class="users ${user._id}">
       <img 
         class="user-img img-fluid" 
         src="${user.profile_pic_url}" 
@@ -82,6 +82,21 @@ const USER_ELEMENT = (user) => {
     </div>`;
 };
 
+/**
+ * @param {string} key 
+ * @param {Object} user or other data
+*/
+const set_data_local = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+/**
+ * @param {string} key 
+ * @returns {Object} user or other data
+*/
+const get_data_local = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+}
 
 const formate_datetime = (datetime) => {
   const YEARS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

@@ -1,6 +1,6 @@
 <div class="online-user-container">
     <% connections.forEach((value, index, array) => { %>
-        <div class="users">
+        <div class="users <%= value.user_id._id %>">
             <img 
                 class="user-img img-fluid" 
                 src="<%= value.user_id.profile_pic_url%>" 

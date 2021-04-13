@@ -1,4 +1,4 @@
-let response, element = '';
+let response, element;
 
 async function load_middle_client() {
     const user_id  = this.children[1].id;
@@ -26,6 +26,7 @@ async function load_middle_client() {
             } 
             else 
             {
+                element = '';
                 for (let i = 0; i < response.length; i++) 
                 {
                     if (response[i].sender_id == current_user_id) 

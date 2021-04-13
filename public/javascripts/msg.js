@@ -11,7 +11,16 @@ if (window.location.pathname === '/msg') {
    *  */
   socket.on('user_connect', async (user) => {
     // update view
-    online_user_container[0].innerHTML += USER_ELEMENT(user);
+    
+    // saving user data locally in session storage
+    // so as soon as the window is closed 
+    // it automatically destroy the data
+    set_data_local('current_user', user);
+    
+    var user_view = $(`.online_user_container .${user._id}`).html(); 
+    if (!user_view) {
+      online_user_container[0].innerHTML += USER_ELEMENT(user);
+    }
   });
 
 
@@ -60,6 +69,6 @@ if (window.location.pathname === '/msg') {
    *  */
   socket.on('user_disconnect', (user_id) => {
     // update views
-    $(`#${user_id}`).parent().remove();
+    $(`.online-user-container .${user_id}`).remove();
   });
 }
