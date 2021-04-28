@@ -9,8 +9,8 @@ const MSG        = require('../../db/models/msg');
 const Connection = require('../../db/models/connection');
 
 /**
- * @param {user} contains all info of authenticated user
- * @param {id} socket connection id
+ * @param {Object} user all info of authenticated user
+ * @param {string} id connection id
  * @returns JSON object @success , @status
  */
 const insertSocketConnection = async (user, id) => {
@@ -33,7 +33,7 @@ const insertSocketConnection = async (user, id) => {
 };
 
 /**
- * @param {id} socket connection id
+ * @param {string} id connection id
  * @returns JSON object @success , @status
  */
 const deleteSocketConnection = async (id) => {
@@ -51,7 +51,9 @@ const deleteSocketConnection = async (id) => {
 };
 
 /**
- * @param {sender_id, reciver_id, msg} stores msg 
+ * @param {string} sender_id msg 
+ * @param {string} reciver_id msg 
+ * @param {string} msg msg 
  * @returns JSON object @success , @status
  */
 const insertMSG = async (sender_id, reciver_id, msg) => {
@@ -75,7 +77,7 @@ const insertMSG = async (sender_id, reciver_id, msg) => {
 }
 
 /**
- * @param {user_id} in Connection collection 
+ * @param {string} user_id Connection collection 
  * @returns JSON object @socket_id for connection
  */
 const getSocketID = async (user_id) => {

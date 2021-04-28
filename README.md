@@ -3,17 +3,16 @@
 > Note: All steps were performed using on Windows 10.  
 > [website](#)
 
-- [Installations](docs/install.md)
-- [Run Locally](docs/local.md)
+- [installations](docs/install.md)
+- [run locally](docs/local.md)
 
-- [Screen Shots]()
-
+- [screenshots]()
   - [home](docs/home.md)
-  - [signin & signup](docs/auth.md)
-  - [doctor's login](docs/doctor.md)
-  - [medicine & disease listing](docs/med_dis.md)
+  - [signin and signup](docs/auth.md)
+  - [doctor](docs/doctor.md)
+  - [meds and disease info](docs/med_dis.md)
   - [contagious disease tracker](docs/tracker.md)
-  - [MSG livechat with doctors](docs/msg.md)
+  - [MSG LIVECHAT](docs/msg.md)
 
 
 
