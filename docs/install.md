@@ -10,3 +10,5 @@
 - Install `Git` 
   -[GIT](https://git-scm.com/)
   - Use default setting and just keep clicling `next` till finish
+
+- done installations!!!
